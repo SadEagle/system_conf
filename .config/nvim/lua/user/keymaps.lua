@@ -33,7 +33,7 @@ map("n", "<S-Tab>", "<cmd>bprev<CR>", { desc = "Buffer goto prev" })
 -- Working with bufer 
 -- map("n", "<leader>x", "<cmd>bp<bar>sp<bar>bn<bar>bd!<CR>", { desc = "Buffer close without window"})
 map("n", "<leader>q", "<cmd>bd<bar>bn<CR>", { desc = "Buffer close without window"})
-map("n", "<leader>x",  "<cmd>bd<CR>", { desc = "Buffer close with window" })
+-- map("n", "<leader>x",  "<cmd>bd<CR>", { desc = "Buffer close with window" })
 -- terminal
 -- map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
