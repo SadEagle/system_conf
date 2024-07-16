@@ -9,8 +9,7 @@ return{
     markieview.setup()
 
     local map = vim.keymap.set
-
     -- TODO: make hotkey for splitted vindow markdown 
-    map("n", "<leader>m", "<cmd>Markview<CR>", { desc = "Preview markdown" })
+    map("n", "<leader>mv", "<cmd>Markview<CR>", { desc = "Preview markdown" })
   end,
 }
