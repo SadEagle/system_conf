@@ -11,7 +11,7 @@ return {
     local treesitter = require("nvim-treesitter.configs")
 
     -- configure treesitter
-    treesitter.setup({ 
+    treesitter.setup({
       -- enable syntax highlighting
       highlight = {
         enable = true,
@@ -24,6 +24,7 @@ return {
       },
       -- ensure these language parsers are installed
       ensure_installed = {
+        "bash",
         "comment",
         "lua",
         "python",
