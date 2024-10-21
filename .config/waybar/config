@@ -1,11 +1,4 @@
-//* ----------- 💫 https://github.com/JaKooLit 💫 -------- */
-//* ............................................*/
-//* ................PEONY.......................*/
-//* ............................................*/
-//* --- 👍 designed by https://github.com/Krautt  👍 --- */
-
 {
- 
 "include": [
   "$HOME/.config/waybar/Modules",
   "$HOME/.config/waybar/ModulesWorkspaces",
