@@ -7,8 +7,12 @@ colors
 
 zstyle ':completion:*' menu select
 
-# autoload -U colors && colors
-PROMPT="%{$fg[green]%}%n %{$fg[yellow]%}- %{$fg[blue]%}%~ %{$fg[white]%}$ "
+# git prompt
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+}
+
+PROMPT="%{$fg[green]%}%n %{$fg[yellow]%}- %{$fg[blue]%}%~ %{$fg[cyan]%}$(parse_git_branch) %{$fg[white]%}$ "
 
 # Custom aliases
 alias nv='nvim'
@@ -28,7 +32,6 @@ source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "jeffreytse/zsh-vi-mode"
-# zplug "olivierverdier/zsh-git-prompt"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
