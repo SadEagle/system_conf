@@ -7,12 +7,9 @@
     "exclusive": true,
     "passthrough": false,
     "position": "top",
-    "spacing": 4,
+    "spacing": 2,
     "fixed-center": true,
-    //"ipc": true,
-    "margin-top": 5,
-    "margin-bottom": 5,
-    "width": 1440,
+    "width": 2560,
 
     "modules-left": [
         "hyprland/workspaces",
@@ -23,6 +20,6 @@
     "modules-right": [
         "hyprland/language",
         "wireplumber",
-        "backlight/slicder",
+        "backlight",
     ],
 }	
