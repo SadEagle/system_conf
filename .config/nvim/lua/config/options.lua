@@ -8,22 +8,16 @@ opt.shiftwidth = 4 -- <<, >> symbols amount spaces
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy intend current line for next
 
---[[
--- Hybrid number settings
+-- Set numbers
 opt.number = true
 opt.relativenumber = true
---]]
-
--- Set numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
 
 -- Search
 opt.hlsearch = true -- hl search result
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- automatically became case-sensetive when exist both upper and lower cases
 
-opt.scrolloff = 8 -- amount rows before cursor
+opt.scrolloff = 6 -- amount rows before cursor
 opt.wrap = false -- words are not split if more than expected
 -- opt.whichwrap:=<,>,h,l,[,] -- go next line at the end current (default can't)
 
@@ -42,3 +36,11 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- Statusline
 opt.laststatus = 3 -- which windows has statusline (2 - all; 3 - only last)
+
+-- Hard wrap (dont know how make soft, by amount)
+opt.wrap = true
+opt.breakindent = true
+opt.linebreak = true -- Break by word rather than character
+
+-- Block mouse
+-- opt.mouse = ''
