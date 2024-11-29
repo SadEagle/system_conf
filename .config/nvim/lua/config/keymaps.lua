@@ -33,6 +33,8 @@ map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to n
 map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
  
+-- Split tab and C-i signals by setting both (more info :h C-i)
+map("n", "<C-i>", "<C-i>") 
 -- Work with buffer
 map("n", "<tab>", "<cmd>bnext<CR>", { desc = "Buffer goto next" })
 map("n", "<S-Tab>", "<cmd>bprev<CR>", { desc = "Buffer goto prev" })
