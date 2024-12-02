@@ -41,10 +41,7 @@ setopt AUTO_MENU        # 1st tab create menu; 2nd go throught it
 # Extra modification files
 ZSH_EXT="$HOME/zsh-extentions"
 source "$ZSH_EXT/aliases.zsh"
-# Skip bindkeys function
-# bindkey() { :; }  # Temporarily override bindkey with a no-op
 source <(fzf --zsh)
-# unset -f bindkey  # Restore the original bindkey function
 
 # Styling
 zstyle ':vcs_info:git:*' formats '[%b]'         # Format the vcs_info_msg_0_ variable
@@ -74,14 +71,14 @@ export FZF_CTRL_R_OPTS="
     --ignore-case
     --header 'Search command in history...'"
 
-# Set only helpful keybinds from fzf
-bindkey -M vicmd '^R' fzf-history-widget
-bindkey '^R' fzf-history-widget
+# # Set only helpful keybinds from fzf
+# bindkey -M vicmd '^R' fzf-history-widget
+# bindkey '^R' fzf-history-widget
 
 # ZPLUG Module
 source ~/.zplug/init.zsh
 
-zplug 'Aloxaf/fzf-tab'
+# zplug 'Aloxaf/fzf-tab'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting'
 
@@ -102,8 +99,8 @@ bindkey '\ek' autosuggest-accept        # Accept
 bindkey '\em' autosuggest-execute       # Accept and run
 bindkey '\el' forward-word              # Accept word by word
 # bindkey '\ec' autosuggest-clear         # Clear suggestion
-bindkey '\ez' autosuggest-toggle        # Enable/disable suggestion
+# bindkey '\ez' autosuggest-toggle        # Enable/disable suggestion
 
-# Fzf-tab
-zstyle ':fzf-tab:*' fzf-flags --ignore-case
-bindkey '^z' toggle-fzf-tab
+# # Fzf-tab
+# zstyle ':fzf-tab:*' fzf-flags --ignore-case
+# bindkey '^z' toggle-fzf-tab
