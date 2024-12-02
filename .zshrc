@@ -4,11 +4,14 @@ precmd() { vcs_info }
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST                 # Enable external variables inside prompt (vcs_info_msg_0_)
-# PROMPT='%F{green}%\%n %F{yellow}%\- %F{blue}%\%~ %F{cyan}%\\${vcs_info_msg_0_} %F{white}%\\> '
-PROMPT='%F{green}%\%n %F{blue}%\%~ %F{cyan}%\\${vcs_info_msg_0_} %F{white}%\\> '
+PROMPT='%F{green}%\%n %F{blue}%\%~ %F{cyan}%\\${vcs_info_msg_0_} %F{white}%\\❭ '
 
 # History settings
+export HISTFILE=~/.zsh_history
 setopt HIST_IGNORE_DUPS             # Dont include duplicate the previous command
+setopt APPENDHISTORY                # Add terminal history (dont rewrite)
+setopt HIST_EXPIRE_DUPS_FIRST       # If HISTSIZE > SAVEHIST, then cut duplicates cmds to put more original commands
+setopt INC_APPEND_HISTORY_TIME      # Store commands at use time when terminal close (against rewrite by default)
 export HISTSIZE=10000               # Maximum events for internal history
 export SAVEHIST=10000               # Maximum events in history file
 
@@ -23,11 +26,10 @@ export SAVEHIST=10000               # Maximum events in history file
    whence ${${(z)1}[$j]} >| /dev/null || return 1
  }
 
-# Push stack setting
+# Dirs stack setting
 setopt AUTO_PUSHD                   # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS            # Do not store duplicates in the stack.
 setopt PUSHD_SILENT                 # Do not print the directory stack after pushd or popd.
-setopt INC_APPEND_HISTORY_TIME      # Store commands at use time when terminal close (against rewrite by default)
 
 alias d='dirs -v'
 dirstacksize=12
@@ -39,33 +41,53 @@ setopt AUTO_MENU        # 1st tab create menu; 2nd go throught it
 # Extra modification files
 ZSH_EXT="$HOME/zsh-extentions"
 source "$ZSH_EXT/aliases.zsh"
+# Skip bindkeys function
+# bindkey() { :; }  # Temporarily override bindkey with a no-op
+source <(fzf --zsh)
+# unset -f bindkey  # Restore the original bindkey function
 
 # Styling
-zstyle ':vcs_info:git:*' formats '[%b]'         # format the vcs_info_msg_0_ variable
-zstyle ':completion:*' menu select
-zstyle ':completion:*' file-sort change         # Sort by last change
+zstyle ':vcs_info:git:*' formats '[%b]'         # Format the vcs_info_msg_0_ variable
 # Case-insensitive completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' file-sort modification   # Order files by modification
+# # Block huge amount possibilities ask
+zstyle ':completion:*' list-prompt   ''
+zstyle ':completion:*' select-prompt ''
 
 # Base keybinds
 # Enable vim (mostly useless)
 bindkey -v 
 # Vim analogy history search
-bindkey "^P" history-beginning-search-backward
-bindkey "^N" history-beginning-search-forward
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
 # Delete left/right part of text respectively coursor
-bindkey '^H' backward-kill-word
-bindkey '^[[3;5~' kill-word
+bindkey '^J' backward-kill-word
+bindkey '^K' kill-line
+bindkey -r '^U'                 # Predefined duplicate ^J cmd
+
+# Fzf history/cmd
+export FZF_CTRL_R_OPTS="
+    --color header:italic
+    --reverse
+    --ignore-case
+    --header 'Search command in history...'"
+
+# Set only helpful keybinds from fzf
+bindkey -M vicmd '^R' fzf-history-widget
+bindkey '^R' fzf-history-widget
 
 # ZPLUG Module
 source ~/.zplug/init.zsh
 
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug 'Aloxaf/fzf-tab'
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'zsh-users/zsh-syntax-highlighting'
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
+    printf 'Install? [y/N]: '
     if read -q; then
         echo; zplug install
     fi
@@ -73,12 +95,15 @@ fi
 
 zplug load
 
-# Bind keys plugins
+# Plugins settigns
 # Autosuggestion
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)       # Autocompletion search order 
-bindkey "\ek" autosuggest-accept        # Accept
-bindkey "\ej" autosuggest-execute       # Accept and run
-bindkey "\el" forward-word              # Accept word by word
-bindkey "\ec" autosuggest-clear         # Clear suggestion
-bindkey "\ex" autosuggest-toggle        # Enable/disable suggestion
+bindkey '\ek' autosuggest-accept        # Accept
+bindkey '\em' autosuggest-execute       # Accept and run
+bindkey '\el' forward-word              # Accept word by word
+# bindkey '\ec' autosuggest-clear         # Clear suggestion
+bindkey '\ez' autosuggest-toggle        # Enable/disable suggestion
 
+# Fzf-tab
+zstyle ':fzf-tab:*' fzf-flags --ignore-case
+bindkey '^z' toggle-fzf-tab
