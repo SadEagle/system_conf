@@ -49,7 +49,7 @@ zstyle ':vcs_info:git:*' formats '[%b]'         # Format the vcs_info_msg_0_ var
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' file-sort modification   # Order files by modification
-# # Block huge amount possibilities ask
+# Block ask about explicit display amount
 zstyle ':completion:*' list-prompt   ''
 zstyle ':completion:*' select-prompt ''
 
@@ -70,6 +70,12 @@ export FZF_CTRL_R_OPTS="
     --reverse
     --ignore-case
     --header 'Search command in history...'"
+
+export FZF_CTRL_T_OPTS="
+    --header 'Search file in current directory and add to cmd...'"
+
+export FZF_ALT_C_OPTS="
+    --header 'Search and jump in directory...'"
 
 # # Set only helpful keybinds from fzf
 # bindkey -M vicmd '^R' fzf-history-widget
