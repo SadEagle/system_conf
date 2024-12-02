@@ -56,13 +56,16 @@ zstyle ':completion:*' select-prompt ''
 # Base keybinds
 # Enable vim (mostly useless)
 bindkey -v 
+# Show default keys in fzf block
+# Ctrl-R, Ctrl-T, Alt-C
+#
 # Vim analogy history search
-bindkey '^P' history-beginning-search-backward
-bindkey '^N' history-beginning-search-forward
+bindkey '^p' history-beginning-search-backward
+bindkey '^n' history-beginning-search-forward
 # Delete left/right part of text respectively coursor
-bindkey '^J' backward-kill-word
-bindkey '^K' kill-line
-bindkey -r '^U'                 # Predefined duplicate ^J cmd
+bindkey '^j' backward-kill-word
+bindkey '^k' kill-line
+bindkey -r '^u'                 # Predefined duplicate ^J cmd
 
 # Fzf history/cmd
 export FZF_CTRL_R_OPTS="
@@ -84,7 +87,6 @@ export FZF_ALT_C_OPTS="
 # ZPLUG Module
 source ~/.zplug/init.zsh
 
-# zplug 'Aloxaf/fzf-tab'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting'
 
@@ -106,7 +108,3 @@ bindkey '\em' autosuggest-execute       # Accept and run
 bindkey '\el' forward-word              # Accept word by word
 # bindkey '\ec' autosuggest-clear         # Clear suggestion
 # bindkey '\ez' autosuggest-toggle        # Enable/disable suggestion
-
-# # Fzf-tab
-# zstyle ':fzf-tab:*' fzf-flags --ignore-case
-# bindkey '^z' toggle-fzf-tab
