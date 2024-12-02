@@ -4,7 +4,7 @@ precmd() { vcs_info }
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST                 # Enable external variables inside prompt (vcs_info_msg_0_)
-PROMPT='%F{green}%\%n %F{blue}%\%~ %F{cyan}%\\${vcs_info_msg_0_} %F{white}%\\❭ '
+PROMPT='%F{green}%\%n %F{blue}%\%~ %F{cyan}%\\${vcs_info_msg_0_}%F{white}%\\❭ '
 
 # History settings
 export HISTFILE=~/.zsh_history
@@ -12,8 +12,8 @@ setopt HIST_IGNORE_DUPS             # Dont include duplicate the previous comman
 setopt APPENDHISTORY                # Add terminal history (dont rewrite)
 setopt HIST_EXPIRE_DUPS_FIRST       # If HISTSIZE > SAVEHIST, then cut duplicates cmds to put more original commands
 setopt INC_APPEND_HISTORY_TIME      # Store commands at use time when terminal close (against rewrite by default)
-export HISTSIZE=10000               # Maximum events for internal history
-export SAVEHIST=10000               # Maximum events in history file
+export HISTSIZE=100000               # Maximum events for internal history
+export SAVEHIST=100000               # Maximum events in history file
 
 # Don't store in history incorrect cmd, enable watch previous cmd even if wrong
 # Check first non-assigment text as command (DEBUG=1 ./some_prog)
@@ -25,6 +25,12 @@ export SAVEHIST=10000               # Maximum events in history file
    }
    whence ${${(z)1}[$j]} >| /dev/null || return 1
  }
+
+ # Git add completion very long
+ # https://superuser.com/questions/458906/zsh-tab-completion-of-git-commands-is-very-slow-how-can-i-turn-it-off
+ __git_files () { 
+    _wanted files expl 'local files' _files     
+}
 
 # Dirs stack setting
 setopt AUTO_PUSHD                   # Push the current directory visited on the stack.
@@ -44,20 +50,21 @@ source "$ZSH_EXT/aliases.zsh"
 source <(fzf --zsh)
 
 # Styling
-zstyle ':vcs_info:git:*' formats '[%b]'         # Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats '[%b] '         # Format the vcs_info_msg_0_ variable
 # Case-insensitive completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' file-sort modification   # Order files by modification
-# Block ask about explicit display amount
-zstyle ':completion:*' list-prompt   ''
-zstyle ':completion:*' select-prompt ''
+# # Block ask about explicit display amount
+# zstyle ':completion:*' list-prompt   ''
+# zstyle ':completion:*' select-prompt ''
 
 # Base keybinds
 # Enable vim (mostly useless)
 bindkey -v 
 # Show default keys in fzf block
 # Ctrl-R, Ctrl-T, Alt-C
+# Much more it may use fzf by ```cmd <some suffix>**<Tab>```. Works different to completion with [kill, ssh, export, unalias, ...]
 #
 # Vim analogy history search
 bindkey '^p' history-beginning-search-backward
@@ -68,6 +75,7 @@ bindkey '^k' kill-line
 bindkey -r '^u'                 # Predefined duplicate ^J cmd
 
 # Fzf history/cmd
+export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up'
 export FZF_CTRL_R_OPTS="
     --color header:italic
     --reverse
@@ -79,10 +87,6 @@ export FZF_CTRL_T_OPTS="
 
 export FZF_ALT_C_OPTS="
     --header 'Search and jump in directory...'"
-
-# # Set only helpful keybinds from fzf
-# bindkey -M vicmd '^R' fzf-history-widget
-# bindkey '^R' fzf-history-widget
 
 # ZPLUG Module
 source ~/.zplug/init.zsh
