@@ -1,10 +1,8 @@
 return {
   "folke/tokyonight.nvim",
-  -- "sainnhe/gruvbox-material",
   lazy = false,
   priority = 1000,
-  config = function()
-    -- load the colorscheme here
-    vim.cmd([[colorscheme tokyonight]])
-  end,
+  config = function(_, _)
+    vim.cmd[[colorscheme tokyonight-night]]
+  end
 }

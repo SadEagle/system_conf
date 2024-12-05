@@ -1,0 +1,43 @@
+return{
+  "nvim-treesitter/nvim-treesitter",
+  main = "nvim-treesitter.configs",
+  build = ":TSUpdate",
+  -- https://github.com/folke/lazy.nvim/discussions/889
+  event = { "BufReadPre", "BufNewFile" },
+  opts={
+      ensure_installed= {
+        "bash",
+        "lua",
+        "python",
+        "c",
+        "cpp",
+        "make",
+        "cmake",
+        "sql",
+        "yaml",
+        "dockerfile",
+        "gitignore",
+      },
+      highlight = {
+        enable = false,
+      },
+      indent = {
+        enable = true,
+        disable = {"python",},
+      },
+      -- incremental_selection = {
+      --   enable = true,
+      --   keymaps = {
+      --     init_selection = "<alt-v>",
+      --     node_incremental = "<cr>",
+      --     scope_incremental = "<TAB>",
+      --     node_decremental = "<S-TAB>",
+      --   }
+      -- },
+      -- TODO: add folding
+  },
+
+  -- Treesitter indentation partially broken
+  -- Python 
+  {"Vimjas/vim-python-pep8-indent"},
+}

@@ -6,7 +6,7 @@ opt.bg = "dark"
 opt.tabstop = 4 -- tab equal 4 spaces
 opt.shiftwidth = 4 -- <<, >> symbols amount spaces
 opt.expandtab = true -- expand tab to spaces
-opt.autoindent = true -- copy intend current line for next
+-- opt.autoindent = true -- copy intend current line for next
 
 -- Set numbers
 opt.number = true
@@ -28,7 +28,7 @@ opt.wrap = false -- words are not split if more than expected
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
-opt.clipboard:append({"unnamedplus"}) -- use system clipboard as default register
+opt.clipboard = "unnamedplus" -- use system clipboard "+", primary selection clipboard as '*'
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
@@ -41,6 +41,9 @@ opt.laststatus = 3 -- which windows has statusline (2 - all; 3 - only last)
 opt.wrap = true
 opt.breakindent = true
 opt.linebreak = true -- Break by word rather than character
+
+-- Split right side every time
+-- opt.splitright = true
 
 -- Block mouse
 -- opt.mouse = ''

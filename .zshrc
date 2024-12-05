@@ -72,10 +72,12 @@ bindkey '^n' history-beginning-search-forward
 # Delete left/right part of text respectively coursor
 bindkey '^j' backward-kill-word
 bindkey '^k' kill-line
+
+bindkey '^[[3~' delete-char     # Fix broken 'Del'
 bindkey -r '^u'                 # Predefined duplicate ^J cmd
 
 # Fzf history/cmd
-export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up'
+export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up --height=60%'
 export FZF_CTRL_R_OPTS="
     --color header:italic
     --reverse

@@ -2,7 +2,7 @@
     "include": [
         "$HOME/.config/waybar/Modules",
     ],
-    "layer": "bottom",
+    "layer": "top",
     "position": "top",
     "exclusive": true,
     "passthrough": false,
