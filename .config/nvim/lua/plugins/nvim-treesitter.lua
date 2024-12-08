@@ -39,12 +39,11 @@ return{
     config = function(PluginSpec)
       vim.wo.foldmethod = 'expr'
       vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-      vim.wo.foldlevel = 99
       require(PluginSpec.main).setup(PluginSpec.opts)
     end
   },
-  
-  -- Treesitter indentation partially broken
+
+  -- Treesitter indentation fix
   -- Python 
   {"Vimjas/vim-python-pep8-indent"},
 }

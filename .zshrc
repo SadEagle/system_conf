@@ -8,12 +8,12 @@ PROMPT='%F{green}%\%n %F{blue}%\%~ %F{cyan}%\\${vcs_info_msg_0_}%F{white}%\\❭ 
 
 # History settings
 export HISTFILE=~/.zsh_history
-setopt HIST_IGNORE_DUPS             # Dont include duplicate the previous command
+setopt HIST_IGNORE_ALL_DUPS         # Delete cmd from history even if it isn't previous command 
 setopt APPENDHISTORY                # Add terminal history (dont rewrite)
 setopt HIST_EXPIRE_DUPS_FIRST       # If HISTSIZE > SAVEHIST, then cut duplicates cmds to put more original commands
 setopt INC_APPEND_HISTORY_TIME      # Store commands at use time when terminal close (against rewrite by default)
-export HISTSIZE=100000               # Maximum events for internal history
-export SAVEHIST=100000               # Maximum events in history file
+export HISTSIZE=100000              # Maximum events for internal history
+export SAVEHIST=100000              # Maximum events in history file
 
 # Don't store in history incorrect cmd, enable watch previous cmd even if wrong
 # Check first non-assigment text as command (DEBUG=1 ./some_prog)
@@ -45,7 +45,7 @@ for index ({1..${dirstacksize}}) alias "d$index"="cd +${index}"; unset index
 setopt AUTO_MENU        # 1st tab create menu; 2nd go throught it
 
 # Extra modification files
-ZSH_EXT="$HOME/zsh-extentions"
+ZSH_EXT="$HOME/.config/zsh-extentions"
 source "$ZSH_EXT/aliases.zsh"
 source <(fzf --zsh)
 
@@ -60,6 +60,9 @@ zstyle ':completion:*' file-sort modification   # Order files by modification
 # zstyle ':completion:*' select-prompt ''
 
 # Base keybinds
+# Reverse completion
+bindkey "\e[Z" reverse-menu-complete
+
 # Enable vim (mostly useless)
 bindkey -v 
 # Show default keys in fzf block
