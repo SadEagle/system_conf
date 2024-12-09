@@ -111,7 +111,7 @@ zplug load
 
 # Plugins settigns
 # Autosuggestion
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)       # Autocompletion search order 
+ZSH_AUTOSUGGEST_STRATEGY=(completion history)       # Autocompletion search order 
 bindkey '\ek' autosuggest-accept        # Accept
 bindkey '\em' autosuggest-execute       # Accept and run
 bindkey '\el' forward-word              # Accept word by word

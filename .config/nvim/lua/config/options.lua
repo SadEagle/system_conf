@@ -33,7 +33,7 @@ opt.wrap = false -- words are not split if more than expected
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
--- opt.clipboard = "unnamedplus" -- use system clipboard "+", primary selection clipboard as '*'
+opt.clipboard = "unnamedplus" -- use system clipboard "+", primary selection clipboard as '*'
 
 -- split windows
 opt.splitright = true -- split vertical window to the right
@@ -52,3 +52,16 @@ opt.linebreak = true -- Break by word rather than character
 
 -- Block mouse
 -- opt.mouse = ''
+
+-- -- Folding method uses treesitter
+vim.wo.foldmethod = 'expr'
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+-- vim.o.fillchars = "fold: "  -- Repeated symbol rightside folded line
+-- Show fold line with highlight
+-- https://github.com/neovim/neovim/pull/20750
+-- Impossible to update line, like add comment
+vim.o.foldtext = ''
+-- Add highlight to folded lines
+-- Good colors: #312244 #144552
+vim.cmd("highlight Folded guibg=#1b3a4b guifg=#2c3b5c")
