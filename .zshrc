@@ -12,8 +12,8 @@ setopt HIST_IGNORE_ALL_DUPS         # Delete cmd from history even if it isn't p
 setopt APPENDHISTORY                # Add terminal history (dont rewrite)
 setopt HIST_EXPIRE_DUPS_FIRST       # If HISTSIZE > SAVEHIST, then cut duplicates cmds to put more original commands
 setopt INC_APPEND_HISTORY_TIME      # Store commands at use time when terminal close (against rewrite by default)
-export HISTSIZE=100000              # Maximum events for internal history
-export SAVEHIST=100000              # Maximum events in history file
+export HISTSIZE=10000              # Maximum events for internal history
+export SAVEHIST=10000              # Maximum events in history file
 
 # Don't store in history incorrect cmd, enable watch previous cmd even if wrong
 # Check first non-assigment text as command (DEBUG=1 ./some_prog)
@@ -80,11 +80,9 @@ bindkey '^[[3~' delete-char     # Fix broken 'Del'
 bindkey -r '^u'                 # Predefined duplicate ^J cmd
 
 # Fzf history/cmd
-export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up --height=60%'
+export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up,enter:accept-non-empty,alt-enter:select
+                        --multi --reverse --ignore-case --color header:italic --height=60%'
 export FZF_CTRL_R_OPTS="
-    --color header:italic
-    --reverse
-    --ignore-case
     --header 'Search command in history...'"
 
 export FZF_CTRL_T_OPTS="

@@ -15,7 +15,7 @@ map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Wi
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 -- Clear highlight
-map("n", "<a-n>", ":nohl<CR>", { desc = "Clear search highlights" })
+map("n", "<a-n>", ":nohl<CR>", { desc = "Clear search highlights", remap = true })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "Comment toggle", remap = true })
@@ -32,7 +32,7 @@ map("v", "<leader>/", "gc", { desc = "Comment toggle", remap = true })
 -- map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
  
 -- Split tab and C-i signals by setting both (more info :h C-i)
-map("n", "<C-i>", "<C-i>") 
+map("n", "<C-i>", "<C-i>")
 -- Work with buffer
 map("n", "<tab>", "<cmd>bnext<CR>", { desc = "Buffer goto next" })
 map("n", "<S-Tab>", "<cmd>bprev<CR>", { desc = "Buffer goto prev" })

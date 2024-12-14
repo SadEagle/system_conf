@@ -10,8 +10,8 @@ opt.expandtab = true -- expand tab to spaces
 
 -- Folding params 
 -- Current fold-type expr. With params set in treesitter plugin
-opt.foldlevel = 5 -- Optimal folding level
-opt.foldnestmax = 6 -- Limit level for code folding
+opt.foldlevel = 7 -- Optimal folding level
+opt.foldnestmax = 8 -- Limit level for code folding
 
 -- Set numbers
 opt.number = true
@@ -28,6 +28,16 @@ opt.wrap = false -- words are not split if more than expected
 
 -- cursor
 -- opt.cursorline = true -- highlihg cursor line
+
+-- Hide error and todo signs column
+opt.signcolumn = "no"
+
+-- TODO: make hl to current buffer only. It's little bit annoy when see hl in notconnected windows
+-- Need create own hl group. For a while dont know how to do it
+-- https://github.com/neovim/neovim/issues/1824
+-- vim.cmd("hi clear Search")
+-- vim.cmd("hi clear IncSearc")
+-- vim.cmd("setlocal winhl=Search:BufOnlyHl,IncSearch:BufOnlyHl")
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position

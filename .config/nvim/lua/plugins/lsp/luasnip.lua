@@ -1,17 +1,7 @@
 return{
-  -- "L3MON4D3/LuaSnip",
-  -- tag = "v2.*",
-  --
-  -- keys = function()
-  --   local ls = require("luasnip")
-  --   vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
-  --   vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
-  --   vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
-  --
-  --   vim.keymap.set({"i", "s"}, "<C-E>", function()
-  --     if ls.choice_active() then
-  --       ls.change_choice(1)
-  --     end
-  --   end, {silent = true})
-  -- end
+  "L3MON4D3/LuaSnip",
+  -- TODO: make snippets, what start working
+  -- Add at least one snippet for python int main() -> add if name == "__main__" function
+  -- Probably make different (not tab) keys for snippet completion and get out from completion?
+  -- Info about connect with cmp https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
 }
