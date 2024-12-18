@@ -8,12 +8,14 @@ PROMPT='%F{green}%\%n %F{blue}%\%~ %F{cyan}%\\${vcs_info_msg_0_}%F{white}%\\❭ 
 
 # History settings
 export HISTFILE=~/.zsh_history
-setopt HIST_IGNORE_ALL_DUPS         # Delete cmd from history even if it isn't previous command 
+setopt HIST_REDUCE_BLANKS           # Delete trailing blanklines before saving
+# setopt HIST_IGNORE_ALL_DUPS         # Delete cmd from history even if it isn't previous command 
+setopt HIST_FIND_NO_DUPS
 setopt APPENDHISTORY                # Add terminal history (dont rewrite)
 setopt HIST_EXPIRE_DUPS_FIRST       # If HISTSIZE > SAVEHIST, then cut duplicates cmds to put more original commands
 setopt INC_APPEND_HISTORY_TIME      # Store commands at use time when terminal close (against rewrite by default)
-export HISTSIZE=10000              # Maximum events for internal history
-export SAVEHIST=10000              # Maximum events in history file
+export HISTSIZE=1000              # Maximum events for internal history
+export SAVEHIST=1000              # Maximum events in history file
 
 # Don't store in history incorrect cmd, enable watch previous cmd even if wrong
 # Check first non-assigment text as command (DEBUG=1 ./some_prog)
@@ -72,16 +74,19 @@ bindkey -v
 # Vim analogy history search
 bindkey '^p' history-beginning-search-backward
 bindkey '^n' history-beginning-search-forward
-# Delete left/right part of text respectively coursor
-bindkey '^j' backward-kill-word
-bindkey '^k' kill-line
+# # Delete left/right part of text respectively coursor
+# bindkey '^j' backward-kill-word
+# bindkey '^k' kill-line
+# bindkey -r '^u'                 # Predefined duplicate ^J cmd
 
 bindkey '^[[3~' delete-char     # Fix broken 'Del'
-bindkey -r '^u'                 # Predefined duplicate ^J cmd
 
 # Fzf history/cmd
 export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up,enter:accept-non-empty,alt-enter:select
                         --multi --reverse --ignore-case --color header:italic --height=60%'
+# TODO: add preview only for files, ignore cmd
+# --preview "bat --style=numbers --color=always --line-range :500 {}"
+
 export FZF_CTRL_R_OPTS="
     --header 'Search command in history...'"
 
