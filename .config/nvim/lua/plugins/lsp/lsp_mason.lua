@@ -1,6 +1,7 @@
 return{
   "neovim/nvim-lspconfig",
   dependencies = {
+    "saghen/blink.cmp",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
@@ -9,6 +10,9 @@ return{
   -- event = { "BufReadPre", "BufNewFile" },
 
   config = function()
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    local lspconfig = require('lspconfig')
+
     require("mason").setup{
       ui = {
         icons = {
@@ -27,10 +31,9 @@ return{
         "cmake",
       },
     }
-
     require("mason-lspconfig").setup_handlers {
       function (server_name) -- default handler
-        require("lspconfig")[server_name].setup{}
+        require("lspconfig")[server_name].setup({ capabilities = capabilities })
       end,
     }
 

@@ -21,9 +21,6 @@ map("n", "<a-n>", ":nohl<CR>", { desc = "Clear search highlights", remap = true 
 map("n", "<leader>/", "gcc", { desc = "Comment toggle", remap = true })
 map("v", "<leader>/", "gc", { desc = "Comment toggle", remap = true })
 
--- Probably helpful if before paste was text changing
--- map("n", "<leader>p", '"*p', { desc = "Paste from select clipboard", remap = true})
-
 -- -- Tabs management
 -- map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 -- map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab

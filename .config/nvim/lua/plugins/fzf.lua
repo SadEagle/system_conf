@@ -18,11 +18,6 @@ return{
               --exclude 'python*' --exclude bin --exclude lib]],
       fzf_opts = {
         ['--history'] = vim.fn.stdpath("data") .. '/fzf-lua-files-history',
-        -- fn_post_fzf = function ()
-        --   local fzf_hist_path = vim.fn.stdpath("data") .. '/fzf-lua-files-history'
-        --   local hist_ignore_all_dups_cmd = "awk '!seen[$0]++' filename | tail -n " .. max_hist_amount .. " > temp && mv temp " .. fzf_hist_path
-        --   vim.cmd(hist_ignore_all_dups_cmd)
-        -- end
       },
     },
     -- TODO: add --heading variant with unite greps by files
@@ -42,6 +37,15 @@ return{
       -- Show only current workspace files
       cwd_only = true,
       include_current_session = true,
+    },
+    -- TODO: Add detoggle all
+    keymap = {
+      builtin = {
+        ["<c-d>"] = "preview-page-down",
+        ["<c-u>"] = "preview-page-up",
+        ["<c-y>"] = "preview-down",
+        ["<c-e>"] = "preview-up",
+      }
     },
   },
   keys = function (PluginSpec)
@@ -92,6 +96,5 @@ return{
 
     -- Completion functions
     vim.keymap.set({"i", "n"}, "<a-p>", fzf_lua.complete_path, { desc = "Fzf path completion"})
-
   end
 }

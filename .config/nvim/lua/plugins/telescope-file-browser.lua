@@ -1,5 +1,6 @@
 return{
   "nvim-telescope/telescope-file-browser.nvim",
+  cond = false,
   dependencies = {
     "nvim-telescope/telescope.nvim",
     "nvim-lua/plenary.nvim",
@@ -37,8 +38,7 @@ return{
         },
       },
 
-      -- TODO: fix selection not with tabulation, it thinks that this file select when go next, incorrect
-      -- Need new keys those mark file as selected
+      -- TODO: add file tree for preview dirs
       extensions = {
         file_browser = {
           theme = "ivy",
