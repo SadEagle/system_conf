@@ -5,7 +5,7 @@ return{
   opts = {
     -- Prevent treesitter and lsp attach to bigfile
     bigfile = {
-      size = 15 * 1024 * 1024, -- 15 MB
+      size = 15* 1024 * 1024, -- 15 MB
     },
     -- Delete big files without disrupt layout
     -- WARN: clean buffer dont stay empty, it became 
@@ -28,8 +28,10 @@ return{
         height = 0.9,
         width = 0.9,
       },
-
     },
+    -- TODO: decide do i need to change treesitter scope to this
+    -- scope = {
+    -- },
     -- FIX: default settings dont transfer inside terminal
     -- Dont store cmds inside history
     --

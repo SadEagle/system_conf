@@ -39,10 +39,6 @@ setopt AUTO_PUSHD                   # Push the current directory visited on the 
 setopt PUSHD_IGNORE_DUPS            # Do not store duplicates in the stack.
 setopt PUSHD_SILENT                 # Do not print the directory stack after pushd or popd.
 
-alias d='dirs -v'
-dirstacksize=12
-for index ({1..${dirstacksize}}) alias "d$index"="cd +${index}"; unset index
-
 # Autocomplete
 setopt AUTO_MENU        # 1st tab create menu; 2nd go throught it
 
@@ -85,13 +81,13 @@ bindkey '^[[3~' delete-char     # Fix broken 'Del'
 export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up,enter:accept-non-empty,alt-enter:select
                         --multi --reverse --ignore-case --color header:italic --height=60%'
 # TODO: add preview only for files, ignore cmd
-# --preview "bat --style=numbers --color=always --line-range :500 {}"
 
 export FZF_CTRL_R_OPTS="
     --header 'Search command in history...'"
 
 export FZF_CTRL_T_OPTS="
-    --header 'Search file in current directory and add to cmd...'"
+    --header 'Search file in current directory and add to cmd...'
+    --preview 'bat --style=numbers --color=always --line-range :500 {}' --bind='ctrl-j:toggle-preview'"
 
 export FZF_ALT_C_OPTS="
     --header 'Search and jump in directory...'"
@@ -120,3 +116,14 @@ bindkey '\em' autosuggest-execute       # Accept and run
 bindkey '\el' forward-word              # Accept word by word
 # bindkey '\ec' autosuggest-clear         # Clear suggestion
 # bindkey '\ez' autosuggest-toggle        # Enable/disable suggestion
+
+
+# Yazi file manager
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}

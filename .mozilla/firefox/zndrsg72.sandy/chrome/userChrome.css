@@ -1,0 +1,52 @@
+/* DISTRO: SimpleFox + custom settings */
+/* Toolbar  */
+#tracking-protection-icon-container,
+#urlbar-zoom-button,
+#star-button-box,
+#pageActionButton,
+#pageActionSeparator,
+#tabs-newtab-button,
+#back-button,
+#PanelUI-button,
+#forward-button,
+.tab-secondary-label {
+  display: none !important;
+}
+
+/* Disable elements  */
+#context-navigation,
+#context-savepage,
+#context-pocket,
+#context-sendpagetodevice,
+#context-selectall,
+#context-viewsource,
+#context-inspect-a11y,
+#context-sendlinktodevice,
+#context-openlinkinusercontext-menu,
+#context-bookmarklink,
+#context-savelink,
+#context-savelinktopocket,
+#context-sendlinktodevice,
+#context-searchselect,
+#context-sendimage,
+#context-print-selection {
+  display: none !important;
+}
+
+#context_bookmarkTab,
+#context_moveTabOptions,
+#context_sendTabToDevice,
+#context_reopenInContainer,
+#context_selectAllTabs,
+#context_closeTabOptions {
+  display: none !important;
+}
+
+/* Hide the new tab button */
+.new-tab-button { display: none !important; }
+/* Disable min/max/close window menu */
+.titlebar-buttonbox-container{ display:none } 
+/* Disable remaining space after window menu disable */
+.titlebar-spacer[type="post-tabs"]{ display:none }
+/* Hide Tab Close buttons */
+.tabbrowser-tab .tab-close-button { visibility: collapse !important; }
