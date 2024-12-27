@@ -5,6 +5,7 @@ return{
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
+  -- TODO: build dont work properly, fix autoupdate mason
   build = ":MasonUpdate",
   -- Fast enough
   -- event = { "BufReadPre", "BufNewFile" },

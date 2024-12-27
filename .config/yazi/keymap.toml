@@ -1,0 +1,17 @@
+# TODO: make 'gp' - go previous to pwd (where open)
+
+# prepend_keymap = [
+#     # Delete useless keys
+#     { on = "s-j", run = "whatever", desc = "Junk" },
+#     { on = "s-k", run = "whatever", desc = "Junk" },
+# ]
+
+# FIX: window inside window. Wrapping terminal inside yazi several times and quit terminal althrought
+[[manager.prepend_keymap]]
+on   = "!"
+run  = 'shell zsh "$SHELL" --block'
+desc = "Open shell here"
+
+# prepend_keymap = [
+#     { on = [ "<C-s>" ], exec = "shell zsh --block --confirm" }
+# ]

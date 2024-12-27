@@ -32,19 +32,17 @@ return{
     -- TODO: decide do i need to change treesitter scope to this
     -- scope = {
     -- },
-    -- FIX: default settings dont transfer inside terminal
-    -- Dont store cmds inside history
-    --
-    -- FIX: this looks terrible
-    -- terminal = {
-    --   enabled = true,
-    --   win= {
-    --     height=0.2,
-    --   },
-    --   keys = {
-    --     gf = false,
-    --   }
-    -- },
+    -- FIX: after wrong line submit 130 err on end ctrl+d
+    terminal = {
+      enabled = true,
+      win= {
+        height = 0.2,
+        style = "normal",
+      },
+      keys = {
+        gf = false,
+      }
+    },
   },
   keys = function ()
     -- Lazygit
@@ -53,8 +51,8 @@ return{
     -- vim.keymap.set("n", "<leader>sf", "<cmd>lua Snacks.lazygit.log_file()<cr>", { desc = "Lazygit open current file log" })
 
     -- Terminal
-    -- vim.keymap.set("n", "<leader>so", "<cmd>lua Snacks.terminal.open()<cr>", { desc = "Terminal open" })
-    -- vim.keymap.set("n", "<leader>t", "<cmd>lua Snacks.terminal.toggle()<cr>", { desc = "Terminal toggle" })
+    vim.keymap.set("n", "<leader>so", "<cmd>lua Snacks.terminal.open()<cr>", { desc = "Terminal open" })
+    vim.keymap.set("n", "<leader>st", "<cmd>lua Snacks.terminal.toggle()<cr>", { desc = "Terminal toggle" })
     -- vim.keymap.set("n", "<leader>sg", "<cmd>lua Snacks.terminal.get()<cr>", { desc = "Terminal get" })
   end
 }

@@ -265,3 +265,7 @@ user_pref("browser.fullscreen.autohide", false);
 user_pref("browser.warnOnQuitShortcut", false);
 // PREF: translate suggestions
 user_pref("browser.translations.automaticallyPopup", false);
+
+// FIX: set up dont help
+// Fix error, check userContent.js
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);

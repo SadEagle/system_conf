@@ -50,3 +50,7 @@
 .titlebar-spacer[type="post-tabs"]{ display:none }
 /* Hide Tab Close buttons */
 .tabbrowser-tab .tab-close-button { visibility: collapse !important; }
+
+/*hbox.browserSidebarContainer.newTabBrowserPanel.deck-selected {*/
+/*  z-index: -1; /* sideeffect: this will disable right click context menu on new tabs */*/
+/*}*/

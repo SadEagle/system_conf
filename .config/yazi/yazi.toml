@@ -1,0 +1,38 @@
+[manager]
+sort_sensitive = false
+sort_dir_first = true
+show_symlink = true
+linemode = "size"
+
+[preview]
+wrap = "no"
+# Different image settings 
+# https://yazi-rs.github.io/docs/configuration/yazi#preview.image_quality
+image_fiter = "catmull-rom" 
+image_quality = 80
+
+[opener]
+play = [
+    { run = 'mpv "$@"', desc = "mpv player", orphan = true }
+]
+img_viewer = [
+    { run = 'shotwell "$@"', desc = "shotwell img viewer", orphan = true }
+]
+edit = [
+	{ run = '$EDITOR "$@"', desc = "nvim editor", block = true },
+]
+torrent = [
+    { run = 'transmission-qt "$@"', desc = "transmiision torrent", orphan = true}
+]
+
+# TODO: fix wrong mime
+[plugin]
+rules = [
+    { name = "folder/*", use = "edit" },
+    { mime = "text/*", use = "edit" },
+    { mime = "image/*", use = "img_viewer" },
+    { mime = "video/*", use = "play"},
+]
+
+# TODO: increase preview size little bit
+# TODO: add image view terminal

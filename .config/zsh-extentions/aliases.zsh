@@ -6,8 +6,7 @@ alias lg='lazygit'
 
 # Alises dirs stack
 alias d='dirs -v'
-dirstacksize=12
-for index ({1..${dirstacksize}}) alias "d$index"="cd +${index}"; unset index
+for index ({1..${DIRSTACKSIZE}}) alias "d$index"="cd +${index}"; unset index
 
 # Directory aliases
 alias ..="cd .."

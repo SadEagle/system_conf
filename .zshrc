@@ -35,9 +35,11 @@ export SAVEHIST=1000              # Maximum events in history file
 }
 
 # Dirs stack setting
+# WARN: off possibility fast popd/pushd
 setopt AUTO_PUSHD                   # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS            # Do not store duplicates in the stack.
 setopt PUSHD_SILENT                 # Do not print the directory stack after pushd or popd.
+export DIRSTACKSIZE=16              # Max stack size dir
 
 # Autocomplete
 setopt AUTO_MENU        # 1st tab create menu; 2nd go throught it
@@ -78,6 +80,7 @@ bindkey '^n' history-beginning-search-forward
 bindkey '^[[3~' delete-char     # Fix broken 'Del'
 
 # Fzf history/cmd
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
 export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up,enter:accept-non-empty,alt-enter:select
                         --multi --reverse --ignore-case --color header:italic --height=60%'
 # TODO: add preview only for files, ignore cmd
@@ -91,6 +94,9 @@ export FZF_CTRL_T_OPTS="
 
 export FZF_ALT_C_OPTS="
     --header 'Search and jump in directory...'"
+
+# Zonxide
+eval "$(zoxide init zsh)"
 
 # ZPLUG Module
 source ~/.zplug/init.zsh

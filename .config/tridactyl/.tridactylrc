@@ -1,0 +1,14 @@
+" General Settings
+set update.lastchecktime 1735021202106
+set configversion 2.0
+set theme dracula
+
+" Binds
+bind / fillcmdline find
+bind ? fillcmdline find -?
+bind n findnext 1
+bind N findnext -1
+bind h nohlsearch
+
+" For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
+" vim: set filetype=tridactyl

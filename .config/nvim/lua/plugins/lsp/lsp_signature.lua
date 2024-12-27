@@ -1,5 +1,6 @@
 return{
   "ray-x/lsp_signature.nvim",
+  cond = false,
   event = "InsertEnter",
   main = "lsp_signature",
   opts = {

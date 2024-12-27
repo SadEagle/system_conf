@@ -15,11 +15,23 @@ map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Wi
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 -- Clear highlight
-map("n", "<a-n>", ":nohl<CR>", { desc = "Clear search highlights", remap = true })
+map("n", "<a-n>", ":nohl<CR>", { desc = "Clear search highlights", silent = true })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "Comment toggle", remap = true })
 map("v", "<leader>/", "gc", { desc = "Comment toggle", remap = true })
+
+-- Reverse tab
+map('i', '<S-Tab>', '<C-D>', { desc = "Reverse tab", remap = true })
+
+-- Next snippet
+vim.keymap.set({ 'i', 's' }, '<Tab>', function()
+   if vim.snippet.active({ direction = 1 }) then
+     return '<Cmd>lua vim.snippet.jump(1)<CR>'
+   else
+     return '<Tab>'
+   end
+ end, { expr = true })
 
 -- -- Tabs management
 -- map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
