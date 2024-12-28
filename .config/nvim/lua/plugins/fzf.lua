@@ -12,7 +12,7 @@ return{
       },
     },
     previewers = { builtin = { treesitter = { context = true} } },
-    -- Set in unite cmd fastest possible variants fd and rg
+    -- Set certain fastest variants fd and rg
     files = {
       cmd = [[fd . --color=never --type f --hidden --follow --exclude .git \
               --exclude 'python*' --exclude bin --exclude lib]],

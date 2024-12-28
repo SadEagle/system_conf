@@ -7,11 +7,7 @@
 # ]
 
 # FIX: window inside window. Wrapping terminal inside yazi several times and quit terminal althrought
-[[manager.prepend_keymap]]
-on   = "!"
-run  = 'shell zsh "$SHELL" --block'
-desc = "Open shell here"
-
-# prepend_keymap = [
-#     { on = [ "<C-s>" ], exec = "shell zsh --block --confirm" }
-# ]
+# [[manager.prepend_keymap]]
+# on   = "!"
+# run  = 'shell zsh "$SHELL" --block'
+# desc = "Open shell here"

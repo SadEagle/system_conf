@@ -1,4 +1,4 @@
-# Most useful and needed system setup
+#!/bin/sh
 
 # Install yay
 sudo pacman -S --needed git base-devel
@@ -8,7 +8,7 @@ makepkg -si
 cd ..; rm -rf yay
 
 # Enable multilib
-sudo sed -i "/\[multilib\]/,/Include/"'s/^#//'
+sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.d/mirrorlist
 # Update 
 yay -Suy
 
@@ -18,9 +18,7 @@ yay -S networkmanager
 yay -S pipewire pipewire-alsa lib32-pipewire pipewire-pulse
 yay -S nvidia
 
-# Enviroment packages
-yay -S kitty hyprland hyprshot btop 
-yay -S waybar rofi-wayland lutris telegram-desktop transmission-qt
+yay -S hyprland hyprshot waybar rofi-wayland lutris telegram-desktop transmission-qt mpv shotwell
 # Lutris wine
 # https://github.com/lutris/docs/blob/master/WineDependencies.md
 sudo pacman -S wine-staging
@@ -34,9 +32,9 @@ yay -S nekoray sing-geoip-db sing-geosite-db
 yay -S pwvucontrol
 
 # Main work packages
-yay -S zsh nvim fd fzf ripgrep zoxide yazi
+yay -S kitty zsh nvim fd fzf ripgrep zoxide yazi lazygit
 # Extent work packages 
-yay -S bat
+yay -S bat btop
 
 # Make zsh default shell
 chsh --shell /bin/zsh
@@ -50,7 +48,9 @@ yay -S firefox tridactyl
 # WARN: not sure if okay, need clean install test
 PROFILE_NAME="zndrsg72.sandy"
 DEFAULT_FIREFOX_PATH="$HOME/.mozilla/firefox"
+PROFILE_PATH=$DEFAULT_FIREFOX_PATH/$PROFILE_NAME
 firefox -CreateProfile "$PROFILE_NAME"
+# WARN: Not sure will profile menu appear without this
 # echo "
 # [General]
 # StartWithLastProfile=1
@@ -60,5 +60,4 @@ firefox -CreateProfile "$PROFILE_NAME"
 # IsRelative=1
 # Path=$(basename "$PROFILE_PATH")
 # Default=1" >> "$DEFAULT_FIREFOX_PATH/profiles.ini" 
-
 firefox -P "$PROFILE_NAME" --no-remote &

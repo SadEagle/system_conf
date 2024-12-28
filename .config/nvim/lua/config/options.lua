@@ -22,7 +22,7 @@ opt.hlsearch = true -- hl search result
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- automatically became case-sensetive when exist both upper and lower cases
 
-opt.scrolloff = 6 -- amount rows before cursor
+opt.scrolloff = 4 -- amount rows before cursor
 opt.wrap = false -- words are not split if more than expected
 -- opt.whichwrap:=<,>,h,l,[,] -- go next line at the end current (default can't)
 
