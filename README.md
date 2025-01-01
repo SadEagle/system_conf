@@ -6,4 +6,3 @@ If it will be opened some day I don't recommend to use it as it is. Vise versa u
 
 To install, place files from this repo inside $HOME directory, and run setup.sh.
 It's not full or and may be update later. Even exist parts don't set properly.
-

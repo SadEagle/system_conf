@@ -8,6 +8,7 @@ return{
     opts={
       ensure_installed= {
         "bash",
+        "fish",
         "lua",
         "python",
         "c",

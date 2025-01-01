@@ -32,15 +32,19 @@ yay -S nekoray sing-geoip-db sing-geosite-db
 yay -S pwvucontrol
 
 # Main work packages
-yay -S kitty zsh nvim fd fzf ripgrep zoxide yazi lazygit
+yay -S kitty fish nvim fd fzf ripgrep zoxide yazi lazygit btop #zsh
 # Extent work packages 
-yay -S bat btop
+yay -S bat helyx glow jp
 
-# Make zsh default shell
-chsh --shell /bin/zsh
+# Make fish default shell
+chsh --shell /bin/fish
 
 # Install yazi packages
 ya pack -i
+
+# NOTE: below tridactyl scripts need to be set inside firefox
+# :source: ~/.config/tridactyl/.tridactyl
+# :colourscheme --url https://raw.githubusercontent.com/dracula/tridactyl/main/dracula.css dracula
 
 # Firefox and it's custom profile
 yay -S firefox tridactyl

@@ -1,3 +1,4 @@
+# NOTE: use only because hidden status line have broken color
 [flavor]
 use = "catppuccin-mocha"
 # For upcoming Yazi 0.4 (nightly version):

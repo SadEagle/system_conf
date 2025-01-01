@@ -1,4 +1,5 @@
 [manager]
+ratio = [2,5,7]
 sort_sensitive = false
 sort_dir_first = true
 show_symlink = true
@@ -8,8 +9,8 @@ linemode = "size"
 wrap = "no"
 # Different image settings 
 # https://yazi-rs.github.io/docs/configuration/yazi#preview.image_quality
-image_fiter = "catmull-rom" 
-image_quality = 80
+image_fiter = "nearest" 
+image_quality = 60
 
 [opener]
 play = [
@@ -25,8 +26,11 @@ torrent = [
     { run = 'transmission-qt "$@"', desc = "transmiision torrent", orphan = true}
 ]
 
-# TODO: fix wrong mime
 [plugin]
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+]
+
 rules = [
     { name = "folder/*", use = "edit" },
     { mime = "text/*", use = "edit" },
@@ -34,5 +38,6 @@ rules = [
     { mime = "video/*", use = "play"},
 ]
 
-# TODO: increase preview size little bit
-# TODO: add image view terminal
+append_previewers = [
+    { name = "*", run = "hexyl" },
+]
