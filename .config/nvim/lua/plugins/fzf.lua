@@ -1,8 +1,8 @@
 return{
-  "ibhagwan/fzf-lua",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
+  "ibhagwan/fzf-lua",
   main = "fzf-lua",
   opts = {
     winopts = {
@@ -21,7 +21,7 @@ return{
       },
     },
     -- TODO: add --heading variant with unite greps by files
-    -- TODO: probably swap to glob. Current algo search across full line (file name + found str)
+    -- TODO: probably swap to glob. Current alo search across full line (file name + found str)
     grep = {
       cmd = [[rg --vimgrep --column --line-number --no-heading --color=always --smart-case --max-columns=4096 \
               --glob '!python*']],

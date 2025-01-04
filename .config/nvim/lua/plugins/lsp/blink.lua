@@ -14,6 +14,7 @@ return{
       keymap = {
         ['<cr>'] = { 'accept', 'fallback' },
         ['<Tab>'] = { 'select_next', 'fallback' },
+        ['<a-Tab>'] = { 'accept', 'fallback' },
         ['<S-Tab>'] = { 'select_prev', 'fallback' },
         ['<C-e>'] = { 'show', 'hide', 'fallback' },
         ['<C-space>'] = {'show_documentation', 'hide_documentation', 'fallback'},

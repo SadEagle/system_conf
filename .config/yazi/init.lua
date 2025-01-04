@@ -13,6 +13,7 @@ require("custom-shell"):setup({
 })
 
 -- Bookmarks plugin
+-- TODO: add visualisation key pressing (m and ')
 require("bookmarks"):setup({
 	persist = "vim",
 })

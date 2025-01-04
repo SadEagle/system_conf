@@ -3,15 +3,20 @@
 prepend_keymap = [
     {on = [ "g", "r" ], run = '''shell 'ya emit cd "$(git rev-parse --show-toplevel)"'''', desc = "Return git root"},
     {on = "!", run = 'shell "$SHELL" --block', desc = "Open shell here"},
-    # Chmod plug
-    {on = [ "c", "m" ], run = "plugin chmod", desc = "Chmod on selected files"},
+    # TODO: 
+    # 1. Add open current directory via <a-o>
+    # 2. Add select reverse <s-space>
 
+    #Smart-paste plug
+    {on = "p", run = 'plugin smart-paste', desc = "Paste into the hovered directory or CWD"},
     # Max preview
     {on = "T", run = "plugin max-preview", desc = "Maximize or restore preview"},
-
+    
+    # Chmod plug
+    {on = [ "c", "m" ], run = "plugin chmod", desc = "Chmod on selected files"},
     # Bypass plug
-    {on = "<a-l>", run = "plugin bypass", desc = "Recursively enter child directory, skipping children with only a single subdirectory"},
-    {on = "<a-h>", run = "plugin bypass --args=reverse", desc = "Recursively enter child directory, skipping children with only a single subdirectory"},
+    {on = "<a-l>", run = "plugin bypass", desc = "Bypass enter dirs while the only file - dir inside"},
+    {on = "<a-h>", run = "plugin bypass --args=reverse", desc = "Bypass leave dirs while the only file - dir outside"},
     # First non-dir file plug
     {on = ["g", "j"], run = "plugin first-non-directory", desc = "Jump to the first file"},
     #Custom shell plugin

@@ -1,2 +1,5 @@
 gui:
   showBottomLine: false
+  mouseEvents: false
+  language: 'en'
+  expandFocusedSidePanel: true

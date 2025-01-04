@@ -32,9 +32,9 @@ yay -S nekoray sing-geoip-db sing-geosite-db
 yay -S pwvucontrol
 
 # Main work packages
-yay -S kitty fish nvim fd fzf ripgrep zoxide yazi lazygit btop #zsh
+yay -S kitty fish nvim yazi fd fzf ripgrep zoxide lazygit btop #zsh
 # Extent work packages 
-yay -S bat helyx glow jp
+yay -S bat hexyl glow
 
 # Make fish default shell
 chsh --shell /bin/fish

@@ -1,4 +1,3 @@
---- Enable paste into folder without enter
 --- @sync entry
 return {
   entry = function()

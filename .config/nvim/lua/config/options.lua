@@ -26,14 +26,14 @@ opt.scrolloff = 4 -- amount rows before cursor
 opt.wrap = false -- words are not split if more than expected
 -- opt.whichwrap:=<,>,h,l,[,] -- go next line at the end current (default can't)
 
--- cursor
--- opt.cursorline = true -- highlihg cursor line
-
 -- Hide error and todo signs column
 opt.signcolumn = "no"
 
 -- Hide type from cmd line
-opt.showmode = false
+-- opt.showmode = false
+
+-- Hide tabline
+-- opt.showtabline = 0
 
 -- TODO: make hl to current buffer only. It's little bit annoy when see hl in notconnected windows
 -- Need create own hl group. For a while dont know how to do it
@@ -52,8 +52,11 @@ opt.clipboard = "unnamedplus" -- use system clipboard "+", primary selection cli
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
--- Statusline
-opt.laststatus = 3 -- which windows has statusline (2 - all; 3 - only last)
+-- Statusline custom, simple
+-- opt.laststatus = 2 -- which windows has statusline (2 - all; 3 - only last)
+-- vim.opt.statusline = '    %f'
+-- opt.ruler = false -- Disable cursor position and position %
+-- opt.showmode = false -- Disable neovim mode
 
 -- Hard wrap
 opt.wrap = true -- Wrap by end of screen
@@ -65,10 +68,6 @@ opt.linebreak = true -- Break by word rather than character
 
 -- Block mouse
 -- opt.mouse = ''
-
--- -- Folding method uses treesitter
-vim.wo.foldmethod = 'expr'
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- vim.o.fillchars = "fold: "  -- Repeated symbol rightside folded line
 -- Show fold line with highlight
