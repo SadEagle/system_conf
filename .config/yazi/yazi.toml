@@ -1,3 +1,11 @@
+# BUG:
+# I) Yazi enable to work with dirs even after changing permissions. New yazi can't do it, so expect storing permissions?!
+# 1. Create folder 'mkdir asd'
+# 2. Change permissions 'chmod 100 asd'
+# 3. Current running yazi still enable to work in this folder with old permissions
+# II) cant work with group and others chmods (does it hard to add?) probably, need ticket
+
+# TODO: check does yazi ya packer test installed files to exist binary files or so
 [manager]
 ratio = [2,5,7]
 sort_sensitive = false
@@ -8,7 +16,7 @@ linemode = "size"
 [preview]
 wrap = "no"
 # Different image settings 
-# https://yazi-rs.github.io/docs/configuration/yazi#preview.image_quality
+# https://yazi-rs.github.io/docs/configuration/yazi/#preview.image_filter
 image_fiter = "nearest" 
 image_quality = 60
 

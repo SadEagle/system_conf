@@ -48,7 +48,7 @@ return{
       }
     },
   },
-  keys = function (PluginSpec)
+  keys = function ()
     local fzf_lua = require('fzf-lua')
     -- Buffers and Files
     vim.keymap.set("n", "<leader>ff", fzf_lua.files, { desc = "Fzf files"})

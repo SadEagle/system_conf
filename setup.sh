@@ -14,11 +14,15 @@ yay -Suy
 
 # System packages
 # WARN: include not all packages need update after fresh install
-yay -S networkmanager
+yay -S networkmanager udisks2
 yay -S pipewire pipewire-alsa lib32-pipewire pipewire-pulse
 yay -S nvidia
 
-yay -S hyprland hyprshot waybar rofi-wayland lutris telegram-desktop transmission-qt mpv shotwell
+# Languages
+yay -S go
+# TODO: add everything python
+
+yay -S hyprland waybar rofi-wayland lutris telegram-desktop transmission-qt mpv shotwell
 # Lutris wine
 # https://github.com/lutris/docs/blob/master/WineDependencies.md
 sudo pacman -S wine-staging
@@ -29,7 +33,7 @@ lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32
 # AUR
 yay -S joplin-desktop 
 yay -S nekoray sing-geoip-db sing-geosite-db
-yay -S pwvucontrol
+yay -S pwvucontrol hyprshot
 
 # Main work packages
 yay -S kitty fish nvim yazi fd fzf ripgrep zoxide lazygit btop #zsh

@@ -30,6 +30,7 @@ return{
         "lua_ls",
         "pyright",
         "cmake",
+        "sqls",
       },
     }
     require("mason-lspconfig").setup_handlers {

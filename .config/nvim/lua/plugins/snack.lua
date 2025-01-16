@@ -10,6 +10,7 @@ return{
     -- Delete big files without disrupt layout
     -- WARN: clean buffer dont stay empty, it became 
     -- bufdelete = {},
+    -- TODO: Add prettier image
     dashboard = {
       sections = {
         { section = "header" },
@@ -29,6 +30,9 @@ return{
         width = 0.9,
       },
     },
+    -- picker = {
+    -- },
+    
     -- TODO: decide do i need to change treesitter scope to this
     -- scope = {
     -- },
@@ -56,6 +60,7 @@ return{
     vim.keymap.set("n", "<leader>sa", "<cmd>lua Snacks.lazygit.log()<cr>", { desc = "Lazygit open log" })
     vim.keymap.set("n", "<leader>sd", "<cmd>lua Snacks.lazygit.log_file()<cr>", { desc = "Lazygit open current file log" })
 
+    -- Picker
     -- Terminal
     vim.keymap.set("n", "<leader>sn", "<cmd>lua Snacks.terminal.open()<cr>", { desc = "Terminal open" })
     vim.keymap.set("n", "<leader>sm", "<cmd>lua Snacks.terminal.toggle()<cr>", { desc = "Terminal toggle" })
