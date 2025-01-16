@@ -5,6 +5,10 @@ return{
     build = ":TSUpdate",
     -- https://github.com/folke/lazy.nvim/discussions/889
     event = { "BufReadPre", "BufNewFile" },
+    init = function ()
+      vim.wo.foldmethod = 'expr'
+      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    end,
     opts={
       ensure_installed= {
         "bash",
@@ -37,11 +41,6 @@ return{
         }
       },
     },
-    config = function(PluginSpec)
-      vim.wo.foldmethod = 'expr'
-      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-      require(PluginSpec.main).setup(PluginSpec.opts)
-    end
   },
 
   -- Treesitter indentation fix

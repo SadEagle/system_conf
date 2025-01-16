@@ -68,12 +68,10 @@ map("n", "<c-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window W
 -- map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 -- map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
--- Basic reverse
--- TODO: transfer custom plugin, probably connect with treesitter?
--- Basic operations:
--- 1. +/- ...
--- 2. latten loop/if-else
--- TODO: Make external function + add work with current part of the word (where cursor) `==asd`
+-- NOTE: add important default hotkeys
+-- 
+
+-- Basic reverse keybind
 local esc_symbol = vim.api.nvim_replace_termcodes("<Esc>", true, true, true)
 -- WARN: for now expect same size replace word, (return cursor)
 local pair_vals = {
