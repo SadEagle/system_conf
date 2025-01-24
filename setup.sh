@@ -22,7 +22,7 @@ yay -S nvidia
 yay -S go
 # TODO: add everything python
 
-yay -S hyprland waybar rofi-wayland lutris telegram-desktop transmission-qt mpv shotwell
+yay -S hyprland waybar fuzzel lutris telegram-desktop transmission-qt mpv shotwell
 # Lutris wine
 # https://github.com/lutris/docs/blob/master/WineDependencies.md
 sudo pacman -S wine-staging
@@ -37,6 +37,7 @@ yay -S pwvucontrol hyprshot
 
 # Main work packages
 yay -S kitty fish nvim yazi fd fzf ripgrep zoxide lazygit btop #zsh
+yay -S docker lazydocker
 # Extent work packages 
 yay -S bat hexyl glow
 

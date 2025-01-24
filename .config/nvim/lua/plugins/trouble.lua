@@ -1,4 +1,6 @@
 return{
+  -- NOTE: dont understand how to use it 
+  cond = false,
   "folke/trouble.nvim",
   opts = {
     -- Preview inside window

@@ -1,6 +1,8 @@
 return{
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
+  -- NOTE: by default dont load and wait keys
+  lazy = false,
   main = "todo-comments",
   opts = {},
 

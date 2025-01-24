@@ -40,8 +40,8 @@ return{
             ["<S-Tab>"] = { "list_up", mode = { "i", "n" } },
             ["<A-CR>"] = { "select_and_next", mode = { "i", "n"}},
             ["<S-CR>"] = { "select_and_prev", mode = {"i", "n"}},
-            ["<ScrollWheelDown>"] = false,
-            ["<ScrollWheelUp>"] = false,
+            ["<c-k>"] = { "preview_scroll_up", mode = { "i", "n" } },
+            ["<c-j>"] = { "preview_scroll_down", mode = { "i", "n" } },
           },
         },
         list = {
@@ -50,16 +50,19 @@ return{
             ["<S-Tab>"] = "list_up",
             ["<A-Enter>"] = "select_and_next",
             ["<S-Enter>"] = "select_and_prev",
+            ["<c-k>"] = "preview_scroll_up",
+            ["<c-j>"] = "preview_scroll_down",
           },
         },
       },
     },
-    
+
     -- TODO: decide do i need to change treesitter scope to this
     -- scope = {
     -- },
     -- FIX: after wrong line submit 130 err on end ctrl+d
-    --
+    scratch = {},
+
     -- TODO: 
     -- 1. Add resize terminal according to ratio window size
     -- 2. Add toggle all terminals (or at least hide)
@@ -75,6 +78,7 @@ return{
         gf = false,
       }
     },
+    quickfile = {},
   },
   keys = {
     -- Lazygit
@@ -100,26 +104,33 @@ return{
     { "<leader>s/", function() Snacks.picker.search_history() end, desc = "Search History" },
     -- { "<leader>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
     { "<leader>sc", function() Snacks.picker.commands() end, desc = "Commands" },
-    -- TODO: add diagnostic without WARN
-    { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+    { "<leader>sg", function() Snacks.picker.grep() end, desc = "LiveGrep" },
     { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
     -- { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
     { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
-    { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+    -- { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
     -- { "<leader>sl", function() Snacks.picker.loclist() end, desc = "Location List" },
-    -- TODO: add float window man, useless elese
+    -- TODO: add float window man, useless useless
     { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
     { "<leader>sm", function() Snacks.picker.marks() end, desc = "Marks" },
-    { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
+    -- TODO: check usecases 
+    -- { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
     -- FIX: colorscheme expect another colorschme path param to change it
     -- { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
     { "<leader>qp", function() Snacks.picker.projects() end, desc = "Projects" },
     -- LSP
+    -- TODO: add diagnostic without WARN
+    { "<leader>lx", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+    { "<leader>lX", function() Snacks.picker.diagnostics_buffer() end, desc = "Diagnostics buffer" },
     { "<leader>ld", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
     { "<leader>lr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
     { "<leader>li", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
     { "<leader>ly", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
     { "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+
+    -- Scratch
+    { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
 
     -- Terminal
     { "<leader>dm", function() Snacks.terminal.open() end, desc = "Terminal open" },

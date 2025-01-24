@@ -37,10 +37,10 @@ map("n", "<c-l>", "<C-w>l", { desc = "Switch window right" })
 map("n", "<c-j>", "<C-w>j", { desc = "Switch window down" })
 map("n", "<c-k>", "<C-w>k", { desc = "Switch window up" })
 -- Resize window using <ctrl> arrow keys
-map("n", "<c-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-map("n", "<c-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-map("n", "<c-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
-map("n", "<c-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+map("n", "<c-up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+map("n", "<c-down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+map("n", "<c-right>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+map("n", "<c-left>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 -- TODO: 
 -- 1. decide how to manage multiple windows
@@ -64,8 +64,6 @@ map("n", "<c-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window W
 -- -- Tabs management
 -- map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 -- map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
--- map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
--- map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 -- map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- NOTE: add important default hotkeys
