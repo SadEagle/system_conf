@@ -1,96 +1,136 @@
-@import "mocha.css";
+/* Keyframes */
 
+@keyframes blink-critical {
+	to {
+		/*color: @white;*/
+		background-color: @critical;
+	}
+}
+
+@define-color text #cdd6f4;
+/* Styles */
+@define-color base #1e1e2e;
+@define-color warning #A34C1A;
+@define-color critical #592E24;
+
+@define-color unfocused	#2D1854;
+@define-color focused #612546;
+@define-color inactive #4C2561;
+@define-color hover	#3A2561;
+/*Modules*/
+@define-color network #6E1559;
+@define-color sound #334A09;
+@define-color language #3E1A61;
+@define-color date #0B2742;
+@define-color time #0F4445;
+
+/*Unite characteristics*/
 * {
     font-family: "JetBrainsMono Nerd Font";
     font-weight: bold;
-    min-height: 0;		
-    font-size: 11px;
+	font-size: 12px;
+	font-family: monospace;
     font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-}
 
-window#waybar {
-    background: #11111b;
-    color: #cba6f7;
+	border: none;
+	border-radius: 0;
+	/*min-height: 0;*/
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	text-shadow: none;
+	icon-shadow: none;
 }
-
-.modules-right {
-    border: 3px solid #11111b;
-    border-radius: 10px 10px 10px 10px;
-    background-color: #313244;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-right: 4px;
-    padding-left: 4px;
+#custom-arrow-left,
+#custom-arrow-right1,
+#custom-arrow-right2,
+#custom-arrow-right3,
+#custom-arrow-right4,
+#custom-arrow-right5{
+    font-size: 20px;
 }
-
-.modules-center {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-right: 4px;
-    padding-left: 4px;
-}
-
-.modules-left {
-    background-color: #1e1e2e;
-    border: 3px solid #11111b;
-    border-radius: 10px 10px 10px 10px;
-    background-color: #313244;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-right: 4px;
-    padding-left: 4px;
-}
-
-#workspaces button {
-    color: #6E6A86;
-    box-shadow: none;
-    text-shadow: none;
-    padding: 0px;
-    border-radius: 9px;
-    padding-left: 4px;
-    padding-right: 4px;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#workspaces button.active {
-    color: #1e1e1e;
-    border-radius: 30%;
-    background-color: #cba6f7;
-    padding-left: 6px;
-    padding-right: 8px;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#workspaces button.active:hover {
-    color: #1e1e1e;
-    border-radius: 30%;
-    background-color: #cba6f7;
-    padding-left: 6px;
-    padding-right: 8px;
-}
-
-#workspaces button.focused {
-    color: #d8dee9;
-}
-
-#workspaces button.urgent {
-    border-radius: 30%;
-    background-color: #cba6f7;
-    color: #1e1e1e;
-}
-
 #backlight,
 #backlight-slider,
 #clock,
 #network,
 #language,
-#wireplumber,
-#workspaces{
-    color: Gainsboro;
-    padding-top: 4px;
-    padding-bottom: 4px;
+#wireplumber
+{
     padding-right: 8px;
-    padding-left: 4px;
+    padding-left: 8px;
+}
+
+/*Waybar stuff*/
+window#waybar {
+    background: @base;
+    color: @text;
+}
+
+/* Workspaces stuff */
+#workspaces button {
+	/*font-weight: bold;*/
+	padding-left: 8pt;
+	padding-right: 8pt;
+	color: @text;
+	background: @unfocused;
+}
+/* Inactive (on unfocused output) */
+#workspaces button.visible {
+	background: @inactive;
+}
+/* Active (on focused output) */
+#workspaces button.focused {
+	background: @focused;
+}
+/* Contains an urgent window */
+#workspaces button.urgent {
+	color: @warning-text;
+	background: @warning;
+}
+/* Style when cursor is on the button */
+#workspaces button:hover {
+	background: @hover;
+}
+#custom-arrow-left{
+	color: @unfocused;
+}
+
+#custom-arrow-right1{
+    color: @network;
+    background: transparent;
+}
+/*TODO: add tooltip network*/
+#network{
+    /*  NOTE: fix internet text above other */
+    padding-top: 4px;
+
+    background: @network;
+}
+#custom-arrow-right2{
+    color: @sound;
+    background: @network;
+}
+#wireplumber{
+    background: @sound;
+}
+#custom-arrow-right3{
+    color: @language;
+    background: @sound;
+}
+#language{
+    background: @language;
+}
+#custom-arrow-right4{
+    color: @date;
+    background: @language;
+}
+#clock.date{
+    background: @date;
+}
+#custom-arrow-right5{
+    color: @time;
+    background: @date;
+}
+#clock.time{
+    background: @time;
 }

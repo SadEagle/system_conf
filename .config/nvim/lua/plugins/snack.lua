@@ -61,7 +61,7 @@ return{
     -- scope = {
     -- },
     -- FIX: after wrong line submit 130 err on end ctrl+d
-    scratch = {},
+    -- scratch = {},
 
     -- TODO: 
     -- 1. Add resize terminal according to ratio window size
@@ -71,7 +71,7 @@ return{
     terminal = {
       enabled = true,
       win= {
-        height = 0.2,
+        height = 0.3,
         style = "normal",
       },
       keys = {
@@ -128,9 +128,9 @@ return{
     { "<leader>ly", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
     { "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
 
-    -- Scratch
-    { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-    { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+    -- -- Scratch
+    -- { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    -- { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
 
     -- Terminal
     { "<leader>dm", function() Snacks.terminal.open() end, desc = "Terminal open" },
