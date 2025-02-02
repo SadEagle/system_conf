@@ -61,7 +61,7 @@
         "on-click": "hyprctl switchxkblayout semico---usb-gaming-keyboard- next",
     },
     "wireplumber": {
-        "format": "{volume:3}% {icon}",
+        "format": "{volume}% {icon}",
         "format-muted": "MUTED",
         "on-click": "pwvucontrol",
         "format-icons": ["", "", ""]

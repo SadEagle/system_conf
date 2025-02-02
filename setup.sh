@@ -14,12 +14,13 @@ yay -Suy
 
 # System packages
 # WARN: include not all packages need update after fresh install
-yay -S networkmanager udisks2
+yay -S networkmanager nvidia
+# udisks2
+# Main sound
 yay -S pipewire pipewire-alsa lib32-pipewire pipewire-pulse
-yay -S nvidia
 
 # Languages
-yay -S go
+# yay -S go
 # TODO: add everything python
 
 yay -S hyprland waybar fuzzel lutris telegram-desktop transmission-qt mpv shotwell
@@ -31,20 +32,21 @@ lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib sqlite li
 lib32-libxcomposite ocl-icd lib32-ocl-icd libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs \
 lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2
 # AUR
-yay -S joplin-desktop 
+# TODO: find better equalent, not this silly electron, please
+# yay -S joplin-desktop 
 yay -S nekoray sing-geoip-db sing-geosite-db
 yay -S pwvucontrol hyprshot
 
 # Main work packages
-yay -S kitty fish nvim yazi fd fzf ripgrep zoxide lazygit btop #zsh
+yay -S kitty fish nvim yazi fd fzf ripgrep zoxide lazygit btop
 yay -S docker lazydocker
 # Extent work packages 
 yay -S bat hexyl glow
 
 # Make fish default shell
 chsh --shell /bin/fish
-
 # Install yazi packages
+# WARN: need be accurate with plugins
 ya pack -i
 
 # NOTE: below tridactyl scripts need to be set inside firefox

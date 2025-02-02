@@ -1,18 +1,8 @@
-/* Keyframes */
-
-@keyframes blink-critical {
-	to {
-		/*color: @white;*/
-		background-color: @critical;
-	}
-}
-
 @define-color text #cdd6f4;
 /* Styles */
 @define-color base #1e1e2e;
 @define-color warning #A34C1A;
 @define-color critical #592E24;
-
 @define-color unfocused	#2D1854;
 @define-color focused #612546;
 @define-color inactive #4C2561;
@@ -30,11 +20,9 @@
     font-weight: bold;
 	font-size: 12px;
 	font-family: monospace;
-    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 
 	border: none;
 	border-radius: 0;
-	/*min-height: 0;*/
 	margin: 0;
 	padding: 0;
 	box-shadow: none;
@@ -47,7 +35,7 @@
 #custom-arrow-right3,
 #custom-arrow-right4,
 #custom-arrow-right5{
-    font-size: 20px;
+    font-size: 24px;
 }
 #backlight,
 #backlight-slider,
@@ -68,11 +56,10 @@ window#waybar {
 
 /* Workspaces stuff */
 #workspaces button {
-	/*font-weight: bold;*/
-	padding-left: 8pt;
-	padding-right: 8pt;
 	color: @text;
 	background: @unfocused;
+    padding-right: 12px;
+    padding-left: 12px;
 }
 /* Inactive (on unfocused output) */
 #workspaces button.visible {
@@ -111,6 +98,8 @@ window#waybar {
     background: @network;
 }
 #wireplumber{
+    /*NOTE: module may rapidly change across time*/
+    min-width: 48px;
     background: @sound;
 }
 #custom-arrow-right3{
