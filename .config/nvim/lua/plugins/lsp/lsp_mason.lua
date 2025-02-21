@@ -31,14 +31,15 @@ return{
       ensure_installed = {
         "clangd",
         "lua_ls",
-        "pyright",
         "cmake",
         "sqls",
+        -- Python
+        "pylsp",
       },
     }
     require("mason-lspconfig").setup_handlers {
       function (server_name) -- default handler
-        require("lspconfig")[server_name].setup({ capabilities = capabilities })
+        lspconfig[server_name].setup({ capabilities = capabilities })
       end,
     }
 

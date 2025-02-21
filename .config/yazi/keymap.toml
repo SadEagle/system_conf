@@ -7,29 +7,31 @@ prepend_keymap = [
     # 1. Add open current directory via <a-o>
     # 2. Add select reverse <s-space>
 
-    #Smart-paste plug
+    #Smart-paste
     {on = "p", run = 'plugin smart-paste', desc = "Paste into the hovered directory or CWD"},
     # Max preview
     {on = "T", run = "plugin max-preview", desc = "Maximize or restore preview"},
+    # Mount
+    {on = "M", run = "plugin mount", desc = "Mount plugin"},
     
-    # Chmod plug
+    # Chmod
     {on = [ "c", "m" ], run = "plugin chmod", desc = "Chmod on selected files"},
-    # Bypass plug
+    # Bypass
     {on = "<a-l>", run = "plugin bypass", desc = "Bypass enter dirs while the only file - dir inside"},
     {on = "<a-h>", run = "plugin bypass --args=reverse", desc = "Bypass leave dirs while the only file - dir outside"},
     # First non-dir file plug
     {on = ["g", "j"], run = "plugin first-non-directory", desc = "Jump to the first file"},
-    #Custom shell plugin
+    #Custom shell
     {on = ":", run = 'plugin custom-shell --args="auto --interactive"', desc = "Jump to the first file"},
     
-    # Bookmarks plugin
+    # Bookmarks
     # TODO: add relative path marks (starts with ~/)
     {on = "m", run = "plugin bookmarks --args=save", desc = "Save current position as a bookmark"},
     {on = "'", run = "plugin bookmarks --args=jump", desc = "Jump to a bookmark"},
     {on = ["b", "d"], run = "plugin bookmarks --args=delete", desc = "Delete a bookmark"},
     {on = ["b", "D"], run = "plugin bookmarks --args=delete_all", desc = "Delete all bookmarks"},
 
-    # Relative motions plug
+    # Relative motions
     {on = "1", run = "plugin relative-motions --args=1", desc = "Move in relative steps"},
     {on = "2", run = "plugin relative-motions --args=2", desc = "Move in relative steps"},
     {on = "3", run = "plugin relative-motions --args=3", desc = "Move in relative steps"},

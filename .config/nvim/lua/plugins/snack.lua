@@ -117,7 +117,7 @@ return{
     -- { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
     -- FIX: colorscheme expect another colorschme path param to change it
     -- { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
-    { "<leader>qp", function() Snacks.picker.projects() end, desc = "Projects" },
+    { "<leader>q", function() Snacks.picker.projects() end, desc = "Projects" },
     -- LSP
     -- TODO: add diagnostic without WARN
     { "<leader>lx", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
@@ -133,8 +133,8 @@ return{
     -- { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
 
     -- Terminal
+    -- TODO: add toggle all
     { "<leader>dm", function() Snacks.terminal.open() end, desc = "Terminal open" },
     { "<leader>d,", function() Snacks.terminal.toggle() end, desc = "Terminal toggle" },
-    { "<leader>d.", function() Snacks.terminal.get() end, desc = "Terminal get" },
   },
 }

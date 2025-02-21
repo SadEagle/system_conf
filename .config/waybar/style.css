@@ -86,11 +86,7 @@ window#waybar {
     color: @network;
     background: transparent;
 }
-/*TODO: add tooltip network*/
 #network{
-    /*  NOTE: fix internet text above other */
-    padding-top: 4px;
-
     background: @network;
 }
 #custom-arrow-right2{
@@ -98,7 +94,7 @@ window#waybar {
     background: @network;
 }
 #wireplumber{
-    /*NOTE: module may rapidly change across time*/
+    /*NOTE: fix characters amount may change across time*/
     min-width: 48px;
     background: @sound;
 }

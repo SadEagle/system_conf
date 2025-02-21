@@ -1,4 +1,5 @@
 #!/bin/sh
+# WARN: include not all packages need update script after fresh install
 
 # Install yay
 sudo pacman -S --needed git base-devel
@@ -7,15 +8,20 @@ cd yay
 makepkg -si
 cd ..; rm -rf yay
 
+# Add color to pacman/yay 
+sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+# Add concurrent package download (5 by default)
+sudo sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 # Enable multilib
 sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.d/mirrorlist
 # Update 
 yay -Suy
 
+# Add fonts
+yay -S noto-fonts-emoji
+
 # System packages
-# WARN: include not all packages need update after fresh install
-yay -S networkmanager nvidia
-# udisks2
+yay -S networkmanager nvidia udisks2
 # Main sound
 yay -S pipewire pipewire-alsa lib32-pipewire pipewire-pulse
 
@@ -23,7 +29,7 @@ yay -S pipewire pipewire-alsa lib32-pipewire pipewire-pulse
 # yay -S go
 # TODO: add everything python
 
-yay -S hyprland waybar fuzzel lutris telegram-desktop transmission-qt mpv shotwell
+yay -S hyprland waybar fuzzel lutris telegram-desktop transmission-qt mpv shotwell zim
 # Lutris wine
 # https://github.com/lutris/docs/blob/master/WineDependencies.md
 sudo pacman -S wine-staging
@@ -33,24 +39,28 @@ lib32-libxcomposite ocl-icd lib32-ocl-icd libva lib32-libva gtk3 lib32-gtk3 gst-
 lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2
 # AUR
 # TODO: find better equalent, not this silly electron, please
-# yay -S joplin-desktop 
 yay -S nekoray sing-geoip-db sing-geosite-db
 yay -S pwvucontrol hyprshot
 
 # Main work packages
 yay -S kitty fish nvim yazi fd fzf ripgrep zoxide lazygit btop
-yay -S docker lazydocker
 # Extent work packages 
 yay -S bat hexyl glow
+
+# Project libraries
+# TODO: check do i need ollama
+yay -S docker lazydocker
+yay -S postgre gitea
 
 # Make fish default shell
 chsh --shell /bin/fish
 # Install yazi packages
-# WARN: need be accurate with plugins
+# WARN: need to be sure plugins are ok
 ya pack -i
 
 # NOTE: below tridactyl scripts need to be set inside firefox
 # :source: ~/.config/tridactyl/.tridactyl
+# TODO: change dracula scheme. Current one is so big blocks and annoy
 # :colourscheme --url https://raw.githubusercontent.com/dracula/tridactyl/main/dracula.css dracula
 
 # Firefox and it's custom profile

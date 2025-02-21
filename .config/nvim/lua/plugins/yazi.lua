@@ -5,7 +5,6 @@ return{
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
   end,
-  -- TODO: add storing bookmarks across one neovim session 
   event = "VeryLazy",
   opts = {
     open_for_directories = true,
