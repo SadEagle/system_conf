@@ -34,7 +34,7 @@ return{
         "cmake",
         "sqls",
         -- Python
-        "pylsp",
+        "pyright",
       },
     }
     require("mason-lspconfig").setup_handlers {

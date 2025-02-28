@@ -117,7 +117,7 @@ return{
     -- { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
     -- FIX: colorscheme expect another colorschme path param to change it
     -- { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
-    { "<leader>q", function() Snacks.picker.projects() end, desc = "Projects" },
+    { "<leader>p", function() Snacks.picker.projects() end, desc = "Projects" },
     -- LSP
     -- TODO: add diagnostic without WARN
     { "<leader>lx", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },

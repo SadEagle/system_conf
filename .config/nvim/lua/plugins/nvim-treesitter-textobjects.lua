@@ -28,7 +28,6 @@ return{
           ["aa"] = { query = "@call.outer", desc = "Select outer call" },
           ["ia"] = { query = "@call.inner", desc = "Select inner call" },
 
-          -- More suitable, less predictable
           -- Select loop
           ["al"] = { query = "@loop.outer", desc = "Select outer loop" },
           ["il"] = { query = "@loop.inner", desc = "Select inner loop" },

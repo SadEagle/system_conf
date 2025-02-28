@@ -10,7 +10,7 @@ opt.expandtab = true -- expand tab to spaces
 
 -- Folding params 
 -- Current fold-type expr. With params set in treesitter plugin
-opt.foldlevel = 7 -- Optimal folding level
+opt.foldlevel = 5 -- Optimal folding level
 opt.foldnestmax = 8 -- Limit level for code folding
 
 -- Set numbers

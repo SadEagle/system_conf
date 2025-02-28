@@ -11,7 +11,11 @@ cd ..; rm -rf yay
 # Add color to pacman/yay 
 sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
 # Add concurrent package download (5 by default)
-sudo sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+# 99% it's now default
+# sudo sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+
+# Add parrallel building
+sudo sed -i 's/^#MAKEFLAGS/MAKEFLAGS/' /etc/pacman.conf
 # Enable multilib
 sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.d/mirrorlist
 # Update 
@@ -27,7 +31,11 @@ yay -S pipewire pipewire-alsa lib32-pipewire pipewire-pulse
 
 # Languages
 # yay -S go
-# TODO: add everything python
+
+# WARN: need for pyright, I fucking hate npm/js/typescript
+# Hopefully ruff will create typechecker fast enough
+# Or pylazer fill fix annoying as fuck bugs
+# yay -S npm
 
 yay -S hyprland waybar fuzzel lutris telegram-desktop transmission-qt mpv shotwell zim
 # Lutris wine

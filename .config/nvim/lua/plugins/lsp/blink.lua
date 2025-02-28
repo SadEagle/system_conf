@@ -24,11 +24,11 @@ return{
     },
 
     keymap = {
-      ['<A-w>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      ['<A-w>'] = { 'show', 'show_documentation', 'hide_documentation', 'fallback' },
       ['<A-q>'] = { 'cancel', 'fallback' },
       ['<A-e>'] = { 'hide', 'show', 'fallback' },
       -- TODO: add 2nd option return to base
-      ['<A-s>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end, 'show' },
+      ['<A-s>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end, 'show', 'fallback' },
 
       -- TODO: add check if 1 variant then accept
       ['<Tab>'] = { 'snippet_forward', 'select_next', function(cmp) if has_words_before() then  return cmp.show() else return end end,  'fallback' },
