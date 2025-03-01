@@ -25,18 +25,27 @@ yay -Suy
 yay -S noto-fonts-emoji
 
 # System packages
+# udisks2 use by yazi plugin
 yay -S networkmanager nvidia udisks2
 # Main sound
 yay -S pipewire pipewire-alsa lib32-pipewire pipewire-pulse
 
 # Languages
-# NOTE: C/C++ (clang contain lsp inside)
+# NOTE: clang (C/C++) contain lsp inside
+# Python is default Linux package
 yay -S clang cmake lua
 # LSP languages
-# Python, Markdown, Lua
-yay -S pyright marksman lua-language-server
+# Python Lua CMake Docker Bash Fish
+yay -S pyright lua-language-server neocmakelsp dockerfile-language-server-nodejs bash-language-server fish-lsp
+# Linters
+yay -S ruff
 # Python package manager
 yay -S uv
+
+# Project libraries
+# TODO: check do i need ollama
+yay -S docker lazydocker
+yay -S postgre gitea
 
 # Main system programms
 yay -S hyprland waybar fuzzel lutris telegram-desktop transmission-qt mpv shotwell zim
@@ -56,11 +65,6 @@ yay -S pwvucontrol hyprshot
 yay -S kitty fish nvim yazi fd fzf ripgrep zoxide lazygit btop
 # Extent work packages 
 yay -S bat hexyl glow
-
-# Project libraries
-# TODO: check do i need ollama
-yay -S docker lazydocker
-yay -S postgre gitea
 
 # Make fish default shell
 chsh --shell /bin/fish

@@ -10,15 +10,25 @@ return{
     local capabilities = require'blink.cmp'.get_lsp_capabilities()
     local lspconfig = require'lspconfig'
 
-    -- LSP
-    -- Python - Pyright
+    -- LSP / Liters
+    -- Python
     -- TODO: Add environment variable
     lspconfig.pyright.setup{ capabilities = capabilities }
-    -- C/C++ Clang
+    lspconfig.ruff.setup{ capabilities = capabilities } -- Linter
+    -- C/C++
     lspconfig.clangd.setup{ capabilities = capabilities }
-    -- require'lspconfig'.cmake.setup{ capabilities = capabilities }
+    -- CMake
+    lspconfig.neocmake.setup{ capabilities = capabilities }
+    -- Docker
+    lspconfig.dockerls.setup{ capabilities = capabilities }
     -- Lua
     lspconfig.lua_ls.setup{ capabilities = capabilities }
+    -- Docker
+    lspconfig.dockerls.setup{ capabilities = capabilities }
+    -- Bash
+    lspconfig.bashls.setup{ capabilities = capabilities }
+    -- Fish
+    lspconfig.fish_lsp.setup{ capabilities = capabilities }
 
     -- Diagnostic insert mode
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
