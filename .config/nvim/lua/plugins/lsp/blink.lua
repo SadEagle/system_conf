@@ -59,9 +59,16 @@ return{
         if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
           return { 'buffer' }
         else
-          return { 'lsp', 'path', 'snippets', 'buffer' }
+          return { 'lsp', 'path', 'snippets', 'buffer', 'markdown' }
         end
       end,
+      providers = {
+        markdown = {
+          name = 'RenderMarkdown',
+          module = 'render-markdown.integ.blink',
+          fallbacks = { 'lsp' },
+        },
+      },
     },
 
     -- FIX: signature dont work with autobrackets

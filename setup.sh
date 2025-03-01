@@ -30,13 +30,15 @@ yay -S networkmanager nvidia udisks2
 yay -S pipewire pipewire-alsa lib32-pipewire pipewire-pulse
 
 # Languages
-# yay -S go
+# NOTE: C/C++ (clang contain lsp inside)
+yay -S clang cmake lua
+# LSP languages
+# Python, Markdown, Lua
+yay -S pyright marksman lua-language-server
+# Python package manager
+yay -S uv
 
-# WARN: need for pyright, I fucking hate npm/js/typescript
-# Hopefully ruff will create typechecker fast enough
-# Or pylazer fill fix annoying as fuck bugs
-# yay -S npm
-
+# Main system programms
 yay -S hyprland waybar fuzzel lutris telegram-desktop transmission-qt mpv shotwell zim
 # Lutris wine
 # https://github.com/lutris/docs/blob/master/WineDependencies.md

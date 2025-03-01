@@ -19,6 +19,8 @@ return{
         "cpp",
         "make",
         "cmake",
+        "markdown",
+        "markdown_inline",
         "sql",
         "yaml",
         "dockerfile",

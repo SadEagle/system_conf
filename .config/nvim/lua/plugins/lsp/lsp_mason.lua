@@ -1,47 +1,24 @@
 -- TODO: fix troublesome Keybinds
 -- LSP part of keybinds in snacks.nvim
--- 1. Check correction of this code
 return{
   "neovim/nvim-lspconfig",
   dependencies = {
     "saghen/blink.cmp",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
   },
-  -- TODO: build dont work properly, fix autoupdate mason
-  build = ":MasonUpdate",
-  -- Fast enough
-  -- event = { "BufReadPre", "BufNewFile" },
 
   config = function()
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
-    local lspconfig = require('lspconfig')
+    local capabilities = require'blink.cmp'.get_lsp_capabilities()
+    local lspconfig = require'lspconfig'
 
-    require("mason").setup{
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗"
-        }
-      }
-    }
-    require("mason-lspconfig").setup{
-      automatic_installation = true,
-      ensure_installed = {
-        "clangd",
-        "lua_ls",
-        "cmake",
-        "sqls",
-        -- Python
-        "pyright",
-      },
-    }
-    require("mason-lspconfig").setup_handlers {
-      function (server_name) -- default handler
-        lspconfig[server_name].setup({ capabilities = capabilities })
-      end,
-    }
+    -- LSP
+    -- Python - Pyright
+    -- TODO: Add environment variable
+    lspconfig.pyright.setup{ capabilities = capabilities }
+    -- C/C++ Clang
+    lspconfig.clangd.setup{ capabilities = capabilities }
+    -- require'lspconfig'.cmake.setup{ capabilities = capabilities }
+    -- Lua
+    lspconfig.lua_ls.setup{ capabilities = capabilities }
 
     -- Diagnostic insert mode
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
