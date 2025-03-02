@@ -1,4 +1,6 @@
 gui:
+  # Icons
+  nerdFontsVersion: '3'
   showBottomLine: false
   mouseEvents: false
   language: 'en'

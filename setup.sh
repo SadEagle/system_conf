@@ -4,9 +4,9 @@
 # Install yay
 sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
-cd yay
+pushd yay
 makepkg -si
-cd ..; rm -rf yay
+popd; rm -rf yay
 
 # Add color to pacman/yay 
 sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
@@ -49,6 +49,9 @@ yay -S postgre gitea
 
 # Main system programms
 yay -S hyprland waybar fuzzel lutris telegram-desktop transmission-qt mpv shotwell zim
+# Extra programms
+yay -S pwvucontrol hyprshot
+yay -S nekoray sing-geoip-db sing-geosite-db
 # Lutris wine
 # https://github.com/lutris/docs/blob/master/WineDependencies.md
 sudo pacman -S wine-staging
@@ -56,10 +59,6 @@ sudo pacman -S --needed --asdeps giflib lib32-giflib gnutls lib32-gnutls v4l-uti
 lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib sqlite lib32-sqlite libxcomposite \
 lib32-libxcomposite ocl-icd lib32-ocl-icd libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs \
 lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2
-# AUR
-# TODO: find better equalent, not this silly electron, please
-yay -S nekoray sing-geoip-db sing-geosite-db
-yay -S pwvucontrol hyprshot
 
 # Main work packages
 yay -S kitty fish nvim yazi fd fzf ripgrep zoxide lazygit btop
