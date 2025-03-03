@@ -1,6 +1,6 @@
-return{
+return {
   "mikavilpas/yazi.nvim",
-  init = function ()
+  init = function()
     -- Block netrw plugin load
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
@@ -10,8 +10,8 @@ return{
     open_for_directories = true,
   },
   keys = {
-    { "<leader>du", "<cmd>Yazi<cr>", desc = "Yazi open current file path" },
-    { "<leader>di", "<cmd>Yazi cwd<cr>", desc = "Yazi open nvim pwd" },
+    { "<leader>du", "<cmd>Yazi<cr>",        desc = "Yazi open current file path" },
+    { "<leader>di", "<cmd>Yazi cwd<cr>",    desc = "Yazi open nvim pwd" },
     { '<leader>do', "<cmd>Yazi toggle<cr>", desc = "Yazi resume last session" },
   },
 }

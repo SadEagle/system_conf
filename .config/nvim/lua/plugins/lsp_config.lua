@@ -11,7 +11,7 @@ return {
     -- LSP / Liters
     -- Python
     -- TODO: Add environment variable
-    -- lspconfig.pyright.setup{ capabilities = capabilities }
+    lspconfig.pyright.setup { capabilities = capabilities }
     lspconfig.ruff.setup { capabilities = capabilities } -- Linter
     -- C/C++
     lspconfig.clangd.setup { capabilities = capabilities }
