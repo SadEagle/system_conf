@@ -1,4 +1,4 @@
-return{
+return {
   "nvim-treesitter/nvim-treesitter-context",
   main = "treesitter-context",
   -- TODO: formultiline_threshold > 1

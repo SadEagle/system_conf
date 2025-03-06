@@ -8,11 +8,10 @@ return {
     local capabilities = require 'blink.cmp'.get_lsp_capabilities()
     local lspconfig = require 'lspconfig'
 
-    -- LSP / Liters
+    -- LSP / Liters / Formatter
     -- Python
-    -- TODO: Add environment variable
-    lspconfig.pyright.setup { capabilities = capabilities }
-    lspconfig.ruff.setup { capabilities = capabilities } -- Linter
+    lspconfig.pyright.setup { capabilities = capabilities } -- LSP
+    lspconfig.ruff.setup { capabilities = capabilities }    -- Linter / Formatter
     -- C/C++
     lspconfig.clangd.setup { capabilities = capabilities }
     -- CMake
@@ -39,25 +38,55 @@ return {
     -- Lsp interaction
     -- NOTE: most lsp keys init into snacks.picker
     vim.api.nvim_create_autocmd("LspAttach", {
-      desc = 'LSP actions',
       callback = function(args)
         vim.keymap.set('n', '<leader>lR', "<cmd>lua vim.lsp.buf.rename()<cr>", { desc = 'Rename variable' })
         -- Mostly useless because of write autocmd below
-        vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.format()<cr>', { desc = 'Format current file' })
-      end
+        -- vim.keymap.set('n', '<F1>', '<cmd>lua vim.lsp.buf.format()<cr>', { desc = 'Format current file' })
+      end,
+      desc = 'LSP actions',
+    })
+    -- Use pyright hover
+    -- https://docs.astral.sh/ruff/editors/setup/#neovim
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client == nil then
+          return
+        end
+        if client.name == 'ruff' then
+          -- Disable hover in favor of Pyright
+          client.server_capabilities.hoverProvider = false
+        end
+      end,
+      desc = 'LSP: Disable hover capability from Ruff',
     })
 
-    -- Add autoformatting on save
+    -- Use Formatters / Linter on save
     -- Fromatting lsp https://neovim.io/doc/user/lsp.html#vim.lsp.buf.format()
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = "*", -- Apply to all file types
       callback = function()
+        -- Formatter
         vim.lsp.buf.format({
           async = false, -- Ensure formatting happens before save
           filter = function(client)
             return client.supports_method("textDocument/formatting")
           end
         })
+
+        -- Ruff Linter fix
+        -- WARN: run non-exist pyright request and get error
+        local ruff_clients = vim.lsp.get_clients({
+          bufrnr = vim.api.nvim_get_current_buf(),
+          name = "ruff"
+        })
+        if #ruff_clients == 1 then
+          vim.lsp.buf.code_action({
+            context = { only = { "source.fixAll" } }, -- Triggers linter fixes
+            apply = true,
+          })
+        end
       end
     })
 

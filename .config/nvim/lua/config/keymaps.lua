@@ -42,7 +42,7 @@ map("n", "<c-down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 map("n", "<c-right>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 map("n", "<c-left>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
--- TODO: 
+-- TODO:
 -- 1. decide how to manage multiple windows
 -- 2. Need make auto resize multiple wiundows by ratio
 -- -- Move windows
@@ -67,7 +67,7 @@ map("n", "<c-left>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Wi
 -- map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- NOTE: add important default hotkeys
--- 
+--
 
 -- Basic reverse keybind
 local esc_symbol = vim.api.nvim_replace_termcodes("<Esc>", true, true, true)

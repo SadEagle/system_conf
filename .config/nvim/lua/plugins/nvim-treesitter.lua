@@ -1,16 +1,16 @@
-return{
+return {
   {
     "nvim-treesitter/nvim-treesitter",
     main = "nvim-treesitter.configs",
     build = ":TSUpdate",
     -- https://github.com/folke/lazy.nvim/discussions/889
     event = { "BufReadPre", "BufNewFile" },
-    init = function ()
+    init = function()
       vim.wo.foldmethod = 'expr'
       vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     end,
-    opts={
-      ensure_installed= {
+    opts = {
+      ensure_installed = {
         "bash",
         "fish",
         "lua",
@@ -31,7 +31,7 @@ return{
       },
       indent = {
         enable = true,
-        disable = {"python",},
+        disable = { "python", },
       },
       incremental_selection = {
         enable = true,
@@ -46,6 +46,6 @@ return{
   },
 
   -- Treesitter indentation fix
-  -- Python 
-  {"Vimjas/vim-python-pep8-indent"},
+  -- Python
+  { "Vimjas/vim-python-pep8-indent" },
 }

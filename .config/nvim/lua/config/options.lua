@@ -3,14 +3,14 @@ local opt = vim.opt
 -- Colorscheme (correlate with theme)
 opt.bg = "dark"
 
-opt.tabstop = 4 -- tab equal 4 spaces
-opt.shiftwidth = 4 -- <<, >> symbols amount spaces
+opt.tabstop = 4      -- tab equal 4 spaces
+opt.shiftwidth = 4   -- <<, >> symbols amount spaces
 opt.expandtab = true -- expand tab to spaces
 -- opt.autoindent = true -- copy intend current line for next
 
--- Folding params 
+-- Folding params
 -- Current fold-type expr. With params set in treesitter plugin
-opt.foldlevel = 7-- Optimal folding level
+opt.foldlevel = 7   -- Optimal folding level
 opt.foldnestmax = 9 -- Limit level for code folding
 
 -- Set numbers
@@ -18,12 +18,12 @@ opt.number = true
 opt.relativenumber = true
 
 -- Search
-opt.hlsearch = true -- hl search result
+opt.hlsearch = true   -- hl search result
 opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- automatically became case-sensetive when exist both upper and lower cases
+opt.smartcase = true  -- automatically became case-sensetive when exist both upper and lower cases
 
-opt.scrolloff = 4 -- amount rows before cursor
-opt.wrap = false -- words are not split if more than expected
+opt.scrolloff = 4     -- amount rows before cursor
+opt.wrap = false      -- words are not split if more than expected
 -- opt.whichwrap:=<,>,h,l,[,] -- go next line at the end current (default can't)
 
 -- Hide error and todo signs column
@@ -59,9 +59,9 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- opt.showmode = false -- Disable neovim mode
 
 -- Hard wrap
-opt.wrap = true -- Wrap by end of screen
+opt.wrap = true        -- Wrap by end of screen
 opt.breakindent = true -- Breaked line continue with same indent
-opt.linebreak = true -- Break by word rather than character
+opt.linebreak = true   -- Break by word rather than character
 
 -- Split right side every time
 -- opt.splitright = true

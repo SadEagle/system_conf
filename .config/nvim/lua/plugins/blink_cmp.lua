@@ -4,7 +4,7 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-return{
+return {
   'saghen/blink.cmp',
   version = '*',
   opts = {
@@ -31,12 +31,12 @@ return{
       ['<A-s>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end, 'show', 'fallback' },
 
       -- TODO: add check if 1 variant then accept
-      ['<Tab>'] = { 'snippet_forward', 'select_next', function(cmp) if has_words_before() then  return cmp.show() else return end end,  'fallback' },
-      ['<S-Tab>'] = { 'snippet_backward', 'select_prev', function(cmp) if has_words_before() then  return cmp.show() else return end end,  'fallback' },
+      ['<Tab>'] = { 'snippet_forward', 'select_next', function(cmp) if has_words_before() then return cmp.show() else return end end, 'fallback' },
+      ['<S-Tab>'] = { 'snippet_backward', 'select_prev', function(cmp) if has_words_before() then return cmp.show() else return end end, 'fallback' },
       -- FIX: signature dont appear when accept info
-      ['<CR>'] = { 'select_and_accept', 'fallback'},
+      ['<CR>'] = { 'select_and_accept', 'fallback' },
       -- WARN: little bit tricky because somehow <a-cr> equal to <cr>
-      ['<A-CR>'] = { 'fallback'},
+      ['<A-CR>'] = { 'fallback' },
 
       ['<Up>'] = { 'select_prev', 'fallback' },
       ['<Down>'] = { 'select_next', 'fallback' },
