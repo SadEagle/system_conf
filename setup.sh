@@ -61,7 +61,7 @@ lib32-libxcomposite ocl-icd lib32-ocl-icd libva lib32-libva gtk3 lib32-gtk3 gst-
 lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2
 
 # Main work packages
-yay -S kitty fish nvim yazi fd fzf ripgrep zoxide lazygit btop
+yay -S foot fish nvim yazi fd fzf ripgrep zoxide lazygit btop
 # Extent work packages 
 yay -S bat hexyl glow
 

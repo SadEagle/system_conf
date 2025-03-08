@@ -10,6 +10,8 @@ return {
 
     -- LSP / Liters / Formatter
     -- Python
+    -- NOTE: Not optimal, both lsp use linter, but think that it isn't trouble
+    -- How to fix: https://docs.astral.sh/ruff/editors/setup/#neovim
     lspconfig.pyright.setup { capabilities = capabilities } -- LSP
     lspconfig.ruff.setup { capabilities = capabilities }    -- Linter / Formatter
     -- C/C++
@@ -76,7 +78,7 @@ return {
         })
 
         -- Ruff Linter fix
-        -- WARN: run non-exist pyright request and get error
+        -- WARN: run non-exist pyright request also
         local ruff_clients = vim.lsp.get_clients({
           bufrnr = vim.api.nvim_get_current_buf(),
           name = "ruff"
