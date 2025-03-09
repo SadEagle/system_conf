@@ -47,11 +47,30 @@ yay -S uv
 yay -S docker lazydocker
 yay -S postgre gitea
 
-# Main system programms
-yay -S hyprland waybar fuzzel lutris telegram-desktop transmission-qt mpv shotwell zim
+# Workspace packages
+yay -S foot
+yay -S fish nvim yazi fd fzf ripgrep zoxide lazygit btop
+# Windowspace packages
+yay -S hyprland hyprlock greetd waybar fuzzel
+# Apps packages
+yay -S lutris telegram-desktop transmission-qt mpv shotwell zim
 # Extra programms
 yay -S pwvucontrol hyprshot
 yay -S nekoray sing-geoip-db sing-geosite-db
+
+# Make fish default shell
+chsh --shell /bin/fish
+
+# Setup greeter
+# https://wiki.archlinux.org/title/Greetd#Greeter_configuration
+sudo sed -i 's/^command = agreety --cmd .*/command = agreety --cmd Hyprland/' /etc/greetd/config.toml
+
+# Yazi extra
+# Extent work packages 
+yay -S bat hexyl glow
+# WARN: need to be sure plugins are ok
+ya pack -i
+
 # Lutris wine
 # https://github.com/lutris/docs/blob/master/WineDependencies.md
 sudo pacman -S wine-staging
@@ -59,17 +78,6 @@ sudo pacman -S --needed --asdeps giflib lib32-giflib gnutls lib32-gnutls v4l-uti
 lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib sqlite lib32-sqlite libxcomposite \
 lib32-libxcomposite ocl-icd lib32-ocl-icd libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs \
 lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2
-
-# Main work packages
-yay -S foot fish nvim yazi fd fzf ripgrep zoxide lazygit btop
-# Extent work packages 
-yay -S bat hexyl glow
-
-# Make fish default shell
-chsh --shell /bin/fish
-# Install yazi packages
-# WARN: need to be sure plugins are ok
-ya pack -i
 
 # NOTE: below tridactyl scripts need to be set inside firefox
 # :source: ~/.config/tridactyl/.tridactyl

@@ -17,7 +17,7 @@
 /*Unite characteristics*/
 * {
     font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
+    /*font-weight: bold;*/
 	font-size: 12px;
 	font-family: monospace;
 
@@ -35,7 +35,7 @@
 #custom-arrow-right3,
 #custom-arrow-right4,
 #custom-arrow-right5{
-    font-size: 24px;
+    font-size: 22px;
 }
 #backlight,
 #backlight-slider,
