@@ -29,6 +29,9 @@ yay -S noto-fonts-emoji
 yay -S networkmanager nvidia udisks2
 # Main sound
 yay -S pipewire pipewire-alsa lib32-pipewire pipewire-pulse
+# Screen sharing, duplicate pipewire
+# https://wiki.hyprland.org/Useful-Utilities/Screen-Sharing/
+yay -S xdg-desktop-portal-hyprland wireplumber pipewire
 
 # Languages
 # NOTE: clang (C/C++) contain lsp inside
@@ -57,6 +60,9 @@ yay -S lutris telegram-desktop transmission-qt mpv shotwell zim
 # Extra programms
 yay -S pwvucontrol hyprshot
 yay -S nekoray sing-geoip-db sing-geosite-db
+# WARN:  `ddcutil`` does not support laptop monitors, which do not implement DDC/CI
+# But `brightnessctl` does, in that case need also fix `$HOME/.config/hypr/hypridle.conf` and sleep/wake_up scripts
+yay -S ddcutil
 
 # Make fish default shell
 chsh --shell /bin/fish
