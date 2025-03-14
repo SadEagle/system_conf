@@ -3,6 +3,3 @@ docstring-code-format = true
 
 [lint]
 select = ["ALL"]
-unfixable = [
-    "F401"
-]

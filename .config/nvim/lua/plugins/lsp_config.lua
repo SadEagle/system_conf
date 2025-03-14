@@ -64,10 +64,9 @@ return {
       desc = 'LSP: Disable hover capability from Ruff',
     })
 
-    -- Use Formatters / Linter on save
-    -- Fromatting lsp https://neovim.io/doc/user/lsp.html#vim.lsp.buf.format()
+    -- Use Linter on save
     vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*", -- Apply to all file types
+      pattern = "*",
       callback = function()
         -- Formatter
         vim.lsp.buf.format({
@@ -76,22 +75,22 @@ return {
             return client.supports_method("textDocument/formatting")
           end
         })
-
-        -- Ruff Linter fix
-        -- WARN: run non-exist pyright request also
-        local ruff_clients = vim.lsp.get_clients({
-          bufrnr = vim.api.nvim_get_current_buf(),
-          name = "ruff"
-        })
-        if #ruff_clients == 1 then
-          vim.lsp.buf.code_action({
-            context = { only = { "source.fixAll" } }, -- Triggers linter fixes
-            apply = true,
-          })
-        end
       end
     })
 
+    vim.diagnostic.config {
+      signs = false,
+      underline = true,
+      virtual_text = true,
+      virtual_lines = false,
+      update_in_insert = true,
+      float = {
+        -- source = 'always',
+        header = false,
+        border = 'rounded',
+        focusable = false,
+      },
+    }
     -- Keybind
     -- Low res window show error
     vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float(0, {scope='line'})<CR>",

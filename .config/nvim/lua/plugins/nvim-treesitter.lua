@@ -8,6 +8,10 @@ return {
     init = function()
       vim.wo.foldmethod = 'expr'
       vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+      vim.filetype.add({
+        pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+      })
     end,
     opts = {
       ensure_installed = {
@@ -24,7 +28,12 @@ return {
         "sql",
         "yaml",
         "dockerfile",
+        "hyprlang",
         "gitignore",
+        "gitcommit",
+        "git_rebase",
+        "git_config",
+        "gitattributes",
       },
       highlight = {
         enable = true,

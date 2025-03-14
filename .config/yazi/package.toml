@@ -1,37 +1,27 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:no-status"
-rev = "8945e54"
+rev = "2bf70d8"
 hash = "513a23ac28e1eaa626f3a1bb6c8130d0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "8945e54"
-hash = "f28138c2e11e87962b66d583fef724c3"
+rev = "2bf70d8"
+hash = "2f1053f89d1a301a648ab181d0948e38"
 
 [[plugin.deps]]
 use = "dedukun/relative-motions"
-rev = "0d9c8cf"
-hash = "561ad872c77b95360c2657c5e8d395ed"
-
-[[plugin.deps]]
-use = "Rolv-Apneseth/bypass"
-rev = "6c5414f"
-hash = "905054b2df08ff79af223e0b6f249fa3"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:max-preview"
-rev = "8945e54"
-hash = "15b2ff7f6563c14d5b2e93b3e9da35de"
+rev = "8103065"
+hash = "9f13f0740fa3a0c18e47ec6fb62ddfaa"
 
 [[plugin.deps]]
 use = "Reledia/hexyl"
-rev = "39d3d4e"
-hash = "dd624cbaff94af65f39fd86bc57b340"
+rev = "228a9ef"
+hash = "cdc65cfe4e60e1bf5afe5769d074fa9c"
 
 [[plugin.deps]]
 use = "Reledia/glow"
-rev = "5ce76dc"
-hash = "52e5f5c602962e7cbf874da28f52ba45"
+rev = "c76bf4f"
+hash = "a6b78bf9af5390e3a85a6951fbb7b93"
 
 [[plugin.deps]]
 use = "SadEagle/yazi-plugins:first-non-directory"
@@ -39,21 +29,16 @@ rev = "b277d7d"
 hash = "6158299b59df72becd78b0f1cc9f1d74"
 
 [[plugin.deps]]
-use = "AnirudhG07/custom-shell"
-rev = "6b4550a"
-hash = "43019cca17a4d7b41746c2e0a6b8f33f"
-
-[[plugin.deps]]
-use = "dedukun/bookmarks"
-rev = "202e450"
-hash = "9e2f6f7381542d3adb3080b394b431b4"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "8945e54"
-hash = "f3ade4dba8fb56b85e8363b66f677f9"
+rev = "2bf70d8"
+hash = "dd97eede8e20e59cd2604e8006e470e2"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "cb6165b"
+hash = "812fd49667ab6823250f0411f8cf793a"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "fd85060"
-hash = "c40e434318a8ceffd01842f8dfb2390e"
+rev = "b929df6"
+hash = "2ac87e1b3a61f5887472899e86535d29"

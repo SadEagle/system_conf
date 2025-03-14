@@ -46,15 +46,14 @@ yay -S ruff
 yay -S uv
 
 # Project libraries
-# TODO: check do i need ollama
-yay -S docker lazydocker
-yay -S postgre gitea
+# yay -S docker lazydocker
+yay -S postgresql gitea
 
 # Workspace packages
 yay -S foot
 yay -S fish nvim yazi fd fzf ripgrep zoxide lazygit btop
 # Windowspace packages
-yay -S hyprland hyprlock greetd waybar fuzzel
+yay -S hyprland hyprlock greetd fuzzel waybar
 # Apps packages
 yay -S lutris telegram-desktop transmission-qt mpv shotwell zim
 # Extra programms

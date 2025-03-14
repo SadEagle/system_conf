@@ -7,20 +7,31 @@ mkdir -p "$CACHE_BRIGHTNESS"
 change_brightness_single() {
     MONITOR_ID=$1
     VALUE=$2
-    CURRENT_BRIGHTNESS=$(ddcutil -d "$MONITOR_ID" getvcp 10 | awk '{print $NF}')
-    NEW_BRIGHTNESS=$(($CURRENT_BRIGHTNESS+$VALUE))
-    ddcutil -d "$MONITOR_ID" setvcp 10 "$VALUE" &
-    echo $NEW_BRIGHTNESS > ${CACHE_BRIGHTNESS}/brightness_$MONITOR &
-    wait
+    CURRENT_BRIGHTNESS=$(ddcutil getvcp 10 | awk '{print $9}' | tr -d ',')
+    NEW_BRIGHTNESS=$(($CURRENT_BRIGHTNESS + $VALUE))
+    echo "Change brighness to $NEW_BRIGHTNESS"
+    if [ $VALUE -gt 0 ]; then
+            ddcutil -d "$MONITOR_ID" setvcp 10 $NEW_BRIGHTNESS
+        else
+            ddcutil -d "$MONITOR_ID" setvcp 10 $NEW_BRIGHTNESS 
+    fi
+    echo $NEW_BRIGHTNESS > ${CACHE_BRIGHTNESS}/brightness_$MONITOR_ID &
 }
 
 change_brightness_all() {
     VALUE=$1
     for MONITOR_ID in $(ddcutil detect | grep "Display" | awk '{print $2}'); do
-        CURRENT_BRIGHTNESS=$(ddcutil -d "$MONITOR_ID" getvcp 10 | awk '{print $NF}')
-        NEW_BRIGHTNESS=$(($CURRENT_BRIGHTNESS+$VALUE))
-        ddcutil -d "$MONITOR_ID" setvcp 10 "$VALUE" &
-        echo $NEW_BRIGHTNESS > ${CACHE_BRIGHTNESS}/brightness_$MONITOR &
+        CURRENT_BRIGHTNESS=$(ddcutil getvcp 10 | awk '{print $9}' | tr -d ',')
+        # FIX: NEW_BRIGHTNESS may be more than max one
+        NEW_BRIGHTNESS=$(($CURRENT_BRIGHTNESS + $VALUE))
+        echo $VALUE
+        echo $NEW_BRIGHTNESS
+        if [ $VALUE -gt 0 ]; then
+            ddcutil -d "$MONITOR_ID" setvcp 10 $NEW_BRIGHTNESS
+        else
+            ddcutil -d "$MONITOR_ID" setvcp 10 $NEW_BRIGHTNESS 
+        fi
+        echo "$NEW_BRIGHTNESS" > ${CACHE_BRIGHTNESS}/brightness_$MONITOR_ID &
     done
     wait
 }

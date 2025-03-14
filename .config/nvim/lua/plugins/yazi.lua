@@ -5,6 +5,7 @@ return {
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
   end,
+  dependencies = { "folke/snacks.nvim" },
   event = "VeryLazy",
   opts = {
     open_for_directories = true,

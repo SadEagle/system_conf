@@ -26,14 +26,8 @@ opt.scrolloff = 4     -- amount rows before cursor
 opt.wrap = false      -- words are not split if more than expected
 -- opt.whichwrap:=<,>,h,l,[,] -- go next line at the end current (default can't)
 
--- Hide error and todo signs column
-opt.signcolumn = "no"
-
--- Hide type from cmd line
--- opt.showmode = false
-
 -- Hide tabline
--- opt.showtabline = 0
+opt.showtabline = 0
 
 -- TODO: make hl to current buffer only. It's little bit annoy when see hl in notconnected windows
 -- Need create own hl group. For a while dont know how to do it

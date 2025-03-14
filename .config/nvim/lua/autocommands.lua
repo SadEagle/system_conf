@@ -1,8 +1,7 @@
 -- Autoresize base version
 -- TODO: current version is super simple, need upgrade
--- 1. Add resizing terminal
--- 2. Store window ratio and change it by hands
--- 3. Plot windows according to this ratio (mb add some freeze)
+-- 1. Store window ratio and change it by hands
+-- 2. Plot windows according to this ratio (mb add some freeze)
 vim.api.nvim_command('autocmd VimResized * wincmd =')
 
 -- Clear nontification results on n-ms leave
@@ -14,4 +13,5 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
   end
 })
 
--- Add auto fromatting on save into lsp_config.lua
+-- Autocmds placed somewhere else
+-- 1. Add auto fromatting on save into lsp_config.lua

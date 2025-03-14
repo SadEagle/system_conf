@@ -15,6 +15,9 @@ return {
           ["if"] = { query = "@function.inner", desc = "Select inner function" },
           ["ac"] = { query = "@class.outer", desc = "Select outer class" },
           ["ic"] = { query = "@class.inner", desc = "Select inner class" },
+          -- Parameter block
+          ["ap"] = { query = "@parameter.outer", desc = "Select outer parameter" },
+          ["ip"] = { query = "@parameter.inner", desc = "Select inner parameter" },
           -- Select block
           ["ab"] = { query = "@block.outer", desc = "Select outer block" },
           ["ib"] = { query = "@block.inner", desc = "Select inner block" },

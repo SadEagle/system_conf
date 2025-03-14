@@ -4,7 +4,9 @@ return {
   -- NOTE: by default dont load and wait keys
   lazy = false,
   main = "todo-comments",
-  opts = {},
+  opts = {
+    signs = false,
+  },
 
   keys = {
     { "<leader>st", function() Snacks.picker.todo_comments() end,                                 desc = "Todo all" },
