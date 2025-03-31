@@ -1,6 +1,8 @@
 #!/bin/sh
 # WARN: include not all packages need update script after fresh install
 
+# TODO: add sudo command
+
 # Install yay
 sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
@@ -11,8 +13,6 @@ popd; rm -rf yay
 # Add color to pacman/yay 
 sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
 # Add concurrent package download (5 by default)
-# 99% it's now default
-# sudo sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
 # Add parrallel building
 sudo sed -i 's/^#MAKEFLAGS/MAKEFLAGS/' /etc/pacman.conf
@@ -45,26 +45,26 @@ yay -S ruff
 # Python package manager
 yay -S uv
 
-# Project libraries
-# yay -S docker lazydocker
-yay -S postgresql gitea
-
 # Workspace packages
 yay -S foot
-yay -S fish nvim yazi fd fzf ripgrep zoxide lazygit btop
+yay -S neovim fish nvim yazi fd fzf ripgrep zoxide lazygit btop
 # Windowspace packages
 yay -S hyprland hyprlock greetd fuzzel waybar
 # Apps packages
-yay -S lutris telegram-desktop transmission-qt mpv shotwell zim
+yay -S telegram-desktop transmission-qt mpv shotwell zim # lutris
 # Extra programms
 yay -S pwvucontrol hyprshot
 yay -S nekoray sing-geoip-db sing-geosite-db
-# WARN:  `ddcutil`` does not support laptop monitors, which do not implement DDC/CI
+# WARN:  `ddcutil`` does not support brightness for laptop monitors, which do not implement DDC/CI
 # But `brightnessctl` does, in that case need also fix `$HOME/.config/hypr/hypridle.conf` and sleep/wake_up scripts
 yay -S ddcutil
 
 # Make fish default shell
 chsh --shell /bin/fish
+
+# Project libraries
+# yay -S docker lazydocker
+yay -S postgresql gitea
 
 # Setup greeter
 # https://wiki.archlinux.org/title/Greetd#Greeter_configuration

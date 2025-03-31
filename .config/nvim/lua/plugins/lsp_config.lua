@@ -47,7 +47,7 @@ return {
       end,
       desc = 'LSP actions',
     })
-    -- Use pyright hover
+    -- Use pyright hover only
     -- https://docs.astral.sh/ruff/editors/setup/#neovim
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),

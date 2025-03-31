@@ -61,6 +61,7 @@ opt.linebreak = true   -- Break by word rather than character
 -- opt.splitright = true
 
 -- Block mouse
+-- WARN: in that case bad terminal I-shape mouse form, mostly devastating inside neovim
 -- opt.mouse = ''
 
 -- vim.o.fillchars = "fold: "  -- Repeated symbol rightside folded line

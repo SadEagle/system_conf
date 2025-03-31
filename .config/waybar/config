@@ -50,7 +50,7 @@
         "format-disconnected": "Disconnected",
         "tooltip-format": "{ifname} via {gwaddr} 🕸️",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-        "tooltip-format-ethernet":  "🗺️ {ifname} {ipaddr}/{cidr}",
+        "tooltip-format-ethernet":  "🗺️ {ifname}",
         "max-length": 50
     },
     "hyprland/language": {

@@ -9,6 +9,10 @@ return {
   event = "VeryLazy",
   opts = {
     open_for_directories = true,
+    keys = {
+      open_file_in_horizontal_split = "<c-s>",
+      grep_in_directory = "<c-x>",
+    }
   },
   keys = {
     { "<leader>du", "<cmd>Yazi<cr>",        desc = "Yazi open current file path" },
