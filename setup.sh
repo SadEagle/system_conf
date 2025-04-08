@@ -34,12 +34,12 @@ yay -S pipewire pipewire-alsa lib32-pipewire pipewire-pulse
 yay -S xdg-desktop-portal-hyprland wireplumber pipewire
 
 # Languages
-# NOTE: clang (C/C++) contain lsp inside
+# NOTE: clang (C/C++) contain lsp inside itself
 # Python is default Linux package
 yay -S clang cmake lua
 # LSP languages
 # Python Lua CMake Docker Bash Fish
-yay -S pyright lua-language-server neocmakelsp dockerfile-language-server-nodejs bash-language-server fish-lsp
+yay -S pyright lua-language-server sqls neocmakelsp dockerfile-language-server-nodejs bash-language-server fish-lsp,
 # Linters
 yay -S ruff
 # Python package manager

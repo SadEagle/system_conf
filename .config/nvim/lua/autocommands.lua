@@ -4,12 +4,16 @@
 -- 2. Plot windows according to this ratio (mb add some freeze)
 vim.api.nvim_command('autocmd VimResized * wincmd =')
 
--- Clear nontification results on n-ms leave
 vim.api.nvim_create_autocmd("CmdlineLeave", {
   callback = function()
-    vim.defer_fn(function()
-      vim.cmd("echo ''")
-    end, 10000) -- ms
+    local cmd_type = vim.fn.getcmdtype()
+    if cmd_type == ":" then          -- Only trigger for actual Ex commands
+      vim.defer_fn(function()
+        if vim.fn.mode() == "n" then -- Ensure you're back in normal mode
+          vim.cmd("echo ''")
+        end
+      end, 10000) -- 10 seconds
+    end
   end
 })
 

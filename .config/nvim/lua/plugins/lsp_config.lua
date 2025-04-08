@@ -28,6 +28,9 @@ return {
     lspconfig.bashls.setup { capabilities = capabilities }
     -- Fish
     lspconfig.fish_lsp.setup { capabilities = capabilities }
+    -- SQL
+    -- TODO: add when fix sqlua.nvim
+    -- lspconfig.sqls.setup { capabilities = capabilities }
 
     -- Diagnostic insert mode
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
