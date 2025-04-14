@@ -104,7 +104,6 @@ return {
     { "<leader>sc", function() Snacks.picker.commands() end,                                      desc = "Commands" },
     { "<leader>sg", function() Snacks.picker.grep() end,                                          desc = "LiveGrep" },
     { "<leader>sh", function() Snacks.picker.help() end,                                          desc = "Help Pages" },
-    { "<leader>sH", function() Snacks.picker.highlights() end,                                    desc = "Highlights" },
     { "<leader>sj", function() Snacks.picker.jumps() end,                                         desc = "Jumps" },
     { "<leader>sM", function() Snacks.picker.man() end,                                           desc = "Man Pages" },
     { "<leader>sm", function() Snacks.picker.marks() end,                                         desc = "Marks" },
