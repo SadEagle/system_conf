@@ -39,14 +39,16 @@ yay -S xdg-desktop-portal-hyprland wireplumber pipewire
 yay -S clang cmake lua
 # LSP languages
 # Python Lua CMake Docker Bash Fish
-yay -S pyright lua-language-server sqls neocmakelsp dockerfile-language-server-nodejs bash-language-server fish-lsp,
+yay -S pyright lua-language-server neocmakelsp dockerfile-language-server-nodejs bash-language-server fish-lsp # sqls
+# Debug packages
+yay -S python-debugpy
 # Linters
 yay -S ruff
 # Python package manager
 yay -S uv
 
 # Workspace packages
-yay -S foot
+yay -S foot # kitty
 yay -S neovim fish nvim yazi fd fzf ripgrep zoxide lazygit btop
 # Windowspace packages
 yay -S hyprland hyprlock greetd fuzzel waybar

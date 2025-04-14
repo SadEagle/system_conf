@@ -29,7 +29,6 @@ return {
     -- Fish
     lspconfig.fish_lsp.setup { capabilities = capabilities }
     -- SQL
-    -- TODO: add when fix sqlua.nvim
     -- lspconfig.sqls.setup { capabilities = capabilities }
 
     -- Diagnostic insert mode

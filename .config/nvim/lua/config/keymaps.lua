@@ -55,10 +55,8 @@ map("n", "<c-left>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Wi
 -- map("n", "<c-a-k>", "<c-w>K", { desc = "iwitch window up" })
 
 -- Tabs
--- TODO: add tab next
--- -- Work with tabs
--- map("n", "<c-tab>", "<cmd>tabNext<CR>", { desc = "Buffer goto next" })
--- map("n", "<c-s-tab>", "<cmd>tabprevious<CR>", { desc = "Buffer goto prev" })
+map("n", "<c-tab>", "<cmd>tabNext<CR>", { desc = "Buffer goto next" })
+map("n", "<c-s-tab>", "<cmd>tabprevious<CR>", { desc = "Buffer goto prev" })
 
 -- TODO: add tabulation keybinds
 -- -- Tabs management
