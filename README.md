@@ -1,8 +1,8 @@
-## My personal system configuration
+## Dotfiles
 
-This is my personal Arch Linux setup. This config is simple and doesn't have any fancy setup. All config settings are set by/for myself.
+Arch Linux setup with mostly all installed libraries by hands. Installation process was written in setup.sh.
+But this script doesnt tested. Recommend use this code only for inspiration.
 
-If it will be opened some day I don't recommend to use it as it is. Netherless use it for inspiration.
-
-To install, place files from this repo inside $HOME directory, and run setup.sh.
-It's not full or and may be update later. Even exist parts don't set properly.
+Setup:
+- Place files from this repo into `~`
+- Run setup.sh scrip that will install all libraries

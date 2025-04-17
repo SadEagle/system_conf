@@ -39,7 +39,7 @@ yay -S xdg-desktop-portal-hyprland wireplumber pipewire
 yay -S clang cmake lua
 # LSP languages
 # Python Lua CMake Docker Bash Fish
-yay -S pyright lua-language-server neocmakelsp dockerfile-language-server-nodejs bash-language-server fish-lsp # sqls
+yay -S pyright lua-language-server neocmakelsp dockerfile-language-server-nodejs bash-language-server # sqls
 # Debug packages
 yay -S python-debugpy
 # Linters

@@ -18,6 +18,8 @@ return {
         "bash",
         "fish",
         "lua",
+        "rust",
+        "zig",
         "python",
         "c",
         "cpp",

@@ -26,8 +26,6 @@ return {
     lspconfig.dockerls.setup { capabilities = capabilities }
     -- Bash
     lspconfig.bashls.setup { capabilities = capabilities }
-    -- Fish
-    lspconfig.fish_lsp.setup { capabilities = capabilities }
     -- SQL
     -- lspconfig.sqls.setup { capabilities = capabilities }
 
