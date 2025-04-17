@@ -1,8 +1,8 @@
 ## Dotfiles
 
-Arch Linux setup with mostly all installed libraries by hands. Installation process was written in setup.sh.
-But this script doesnt tested. Recommend use this code only for inspiration.
+Arch Linux setup
+This setup not ready and use by myself for management and transfer between PC (not yet). Dont recommend use it at all. 
 
-Setup:
-- Place files from this repo into `~`
-- Run setup.sh scrip that will install all libraries
+Current setup:
+- Move all files from repo into `~` folder
+- Run `setup.sh` that will install all libraries I use
